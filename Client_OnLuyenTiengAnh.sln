@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client_OnLuyenTiengAnh", "Client_OnLuyenTiengAnh\Client_OnLuyenTiengAnh.csproj", "{A95C636C-1D12-40DF-B73B-BC8F6A247A9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client_OnLuyenTiengAnh.Testing", "Client_OnLuyenTiengAnh.Testing\Client_OnLuyenTiengAnh.Testing.csproj", "{38AED7CA-5646-4CCD-B42D-4DF19DEDBAAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A95C636C-1D12-40DF-B73B-BC8F6A247A9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A95C636C-1D12-40DF-B73B-BC8F6A247A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A95C636C-1D12-40DF-B73B-BC8F6A247A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A95C636C-1D12-40DF-B73B-BC8F6A247A9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38AED7CA-5646-4CCD-B42D-4DF19DEDBAAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38AED7CA-5646-4CCD-B42D-4DF19DEDBAAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38AED7CA-5646-4CCD-B42D-4DF19DEDBAAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38AED7CA-5646-4CCD-B42D-4DF19DEDBAAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8ED84B44-4E1F-4694-B42C-BC359366E58E}
+	EndGlobalSection
+EndGlobal
