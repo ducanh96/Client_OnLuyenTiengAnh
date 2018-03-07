@@ -8,19 +8,19 @@ using System.Web;
 
 namespace Client_OnLuyenTiengAnh.Areas.Admin.AppService
 {
-    public class ChuDeAppService
+    public class DeThiAppService
     {
-        public ChuDeService _chuDeService { get; set; }
+        public DeThiService _deThiService { get; set; }
+        
 
-
-        public ChuDeAppService()
+        public DeThiAppService()
         {
-            _chuDeService = new ChuDeService();
+            _deThiService = new DeThiService();
         }
 
-        public async Task<IEnumerable<ChuDe>> GetListChuDe()
+        public async Task<IEnumerable<DeThi>> GetListDeThi_ChuDe(int maChuDe)
         {
-            return await _chuDeService.GetListChuDe();
+            return await _deThiService.GetListDeThi_ChuDe(maChuDe);
         }
     }
 }

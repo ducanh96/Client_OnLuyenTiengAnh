@@ -1,8 +1,59 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+@{
+  
+    //List<CauHoi> lst = (List<CauHoi>)ViewData["lstDocPart1"];
+    ////List<DeThi> dsTuVung = (List<DeThi>)ViewBag.dsTuVung;
+    //List<DeThi> dsBienQC = (List<DeThi>)ViewBag.dsBienQC;
 }
 
-<h2>Index</h2>
+<div class="center">
+    <div class="col-sm-12">
+        <div class="tabbable">
+            <ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+                <li class="active">
+                    <a data-toggle="tab" href="#part1">Part1:Từ vựng ngữ pháp</a>
+                </li>
 
+                <li>
+                    <a data-toggle="tab" href="#part2">Part2: Đọc biển quảng cáo</a>
+                </li>
+
+                <li>
+                    <a data-toggle="tab" href="#part3">Part 3: Đọc hiểu đoạn văn</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#part4">Part 4: Đọc điền từ</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="part1" class="tab-pane in active">
+                @Html.Action("_TuVungNguPhap")
+                </div>
+
+                <div id="part2" class="tab-pane">
+                 @*@Html.Action("_DocBienQuangCao")*@
+                </div>
+
+
+                <div id="part3" class="tab-pane">
+                    @*@Html.Action("_DocHieuDoanVan")*@
+                </div>
+
+
+                <div id="part4" class="tab-pane">
+                 @*@Html.Action("_DocDienTu")*@
+                </div>
+
+
+                <div id="dropdown14" class="tab-pane">
+                    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade.</p>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.col -->
+</div>

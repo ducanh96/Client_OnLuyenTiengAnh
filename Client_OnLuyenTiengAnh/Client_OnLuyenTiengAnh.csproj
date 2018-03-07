@@ -315,6 +315,10 @@
     <Content Include="Areas\Admin\Content\assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Areas\Admin\Content\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Content\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\DeThi\_TuVungNguPhap.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\_DocBienQuangCao.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\_DocHieuDoanVan.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\_DocDienTu.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -335,12 +339,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\AppService\ChuDeAppService.cs" />
+    <Compile Include="Areas\Admin\AppService\DeThiAppService.cs" />
     <Compile Include="Areas\Admin\Constants.cs" />
     <Compile Include="Areas\Admin\Controllers\DeThiController.cs" />
     <Compile Include="Areas\Admin\Mapping\ChuDeMapping.cs" />
+    <Compile Include="Areas\Admin\Mapping\DeThiMapping.cs" />
     <Compile Include="Areas\Admin\Models\ChuDe.cs" />
+    <Compile Include="Areas\Admin\Models\DeThi.cs" />
+    <Compile Include="Areas\Admin\Response\BaseResponse.cs" />
     <Compile Include="Areas\Admin\Response\ChuDeGetListResponse.cs" />
+    <Compile Include="Areas\Admin\Response\GetListDeThi_ChuDeResponse.cs" />
     <Compile Include="Areas\Admin\Service\ChuDeService.cs" />
+    <Compile Include="Areas\Admin\Service\DeThiService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

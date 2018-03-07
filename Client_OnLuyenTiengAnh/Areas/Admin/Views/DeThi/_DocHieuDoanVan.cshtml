@@ -1,0 +1,539 @@
+﻿
+<div class="row">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="input-group col-md-10">
+                <span class="input-group-addon">
+                    <i class="ace-icon fa fa-check"></i>
+                </span>
+
+                <input type="text" class="form-control search-query" placeholder="Type your query" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-purple btn-sm">
+                        <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+                        Search
+                    </button>
+
+                </span>
+                <span class="input-group-btn" style="padding-left: 150px;padding-right: 140px;">
+                    <a href="@Url.Action("ThemDeThiDocPart3")" role="button" class="green" data-toggle="modal">
+                        <button type="button" class="btn btn-success btn-sm">
+                            <span class="ace-icon fa fa-pencil-square-o icon-on-right bigger-110"></span>
+                            Tạo đề thi
+                        </button>
+                    </a>
+
+
+                </span>
+            </div>
+
+
+        </div><br />
+        <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="simple-table" class="table  table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="center">
+                                <label class="pos-rel">
+                                    <input type="checkbox" class="ace" />
+                                    <span class="lbl"></span>
+                                </label>
+                            </th>
+                            <th class="detail-col">Details</th>
+                            <th></th>
+                            <th class="center">Số đoạn văn</th>
+
+
+                            <th class="center"></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td class="center">
+                                <label class="pos-rel">
+                                    <input type="checkbox" class="ace" />
+                                    <span class="lbl"></span>
+                                </label>
+                            </td>
+
+                            <td class="center">
+                                <div class="action-buttons">
+                                    <a href="#" class="green bigger-140 show-details-btn" title="Show Details">
+                                        <i class="ace-icon fa fa-angle-double-down"></i>
+                                        <span class="sr-only">Details</span>
+                                    </a>
+                                </div>
+                            </td>
+
+                            <td>
+                                Đề 1
+                            </td>
+                            <td>2</td>
+
+                            @*<td>
+                                <audio class="html5_audio" controls=""><source src="https://noidung.tienganh123.com/file/luyen-thi-toeic/part1%20practice/in%20the%20office%201/in%20the%20office%201.mp3" type="audio/mpeg">                       Your browser does not support the audio element.                    </audio>
+                                </td>*@
+
+
+                            <td>
+                                <div class="hidden-sm hidden-xs btn-group ">
+
+
+                                    <button class="btn btn-xs btn-info">
+                                        <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                    </button>
+
+                                    <button class="btn btn-xs btn-danger">
+                                        <i class="ace-icon fa fa-trash-o bigger-120">
+                                            @Html.ActionLink(" ", "Delete")
+                                        </i>
+                                        @{
+                                            if (ViewBag.msgDelete != null)
+                                            {
+                                                int check = (int)ViewBag.msgDelete;
+                                                if (check == 1)
+                                                {
+                                                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                                                }
+                                            }
+
+                                        }
+                                    </button>
+
+
+                                </div>
+
+
+                            </td>
+
+                        </tr>
+                        @*bảng detail*@
+                        <tr class="detail-row">
+
+                            <td colspan="8">
+
+                                <div class="table-detail">
+                                    <div class="row">
+
+                                        <div class="col-xs-12 col-sm-12">
+                                            <table id="simple-table" class="table  table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+
+
+                                                        <th class="center">Đoạn văn</th>
+
+                                                        <th class="center"></th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+
+                                                        <td>
+                                                            HELLO EVERY CON KY....<a href="#modal5" role="button" class="green" data-toggle="modal">Xem thêm</a>
+                                                            <div id="modal5" class="modal fade" tabindex="-1">
+                                                                <div class="modal-dialog" style="width:fit-content">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header no-padding">
+                                                                            <div>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                                                    <span class="white">&times;</span>
+                                                                                </button>
+                                                                                <header>Đoạn văn</header>
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="modal-body no-padding">
+                                                                            <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                                                                <thead>
+
+                                                                                </thead>
+
+                                                                                <tbody>
+
+                                                                                    <tr>
+
+                                                                                        <td colspan="6">
+                                                                                            <div style="text-align:justify" class="well">
+                                                                                                A month ago I had no idea that on a Saturday afternoon in November I’d be hanging 30 metres above the ground and enjoying it.
+                                                                                                Now I looked down at the river far below me, and realised why people love rock-climbing.
+                                                                                                My friend Matt and I had arrived at the Activity Centre on Friday evening. The accommodation wasn’t wonderful, but we had everything we needed (beds, blankets, food), and we were pleased to be out of the city and in the fresh air.
+                                                                                                On Saturday morning we met the other ten members of our group. Cameron had come along with two friends, Kevin and Simon, while sisters Carole and Lynn had come with Amanda. We had come from various places and none of us knew the area.
+                                                                                                We knew we were going to spend the weekend outdoors, but none of us was sure exactly how. Half of us spent the morning caving while the others went rock- climbing and then we changed at lunchtime. Matt and I went to the caves first.
+                                                                                                Climbing out was harder than going in, but after a good deal of pushing, we were out at last - covered in mud but pleased and excited by what we’d done.
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="table-header">
+                                                                                        <th class="center">Câu hỏi</th>
+                                                                                        <th colspan="4" class="center">Đáp án lựa chọn</th>
+                                                                                        <th class="center">Đáp án</th>
+                                                                                    </tr>
+
+                                                                                    <tr>
+                                                                                        <td>TieuDe</td>
+                                                                                        <td>DapAnA</td>
+                                                                                        <td>.DapAnB</td>
+                                                                                        <td>item.DapAnC</td>
+                                                                                        <td>item.DapAnD</td>
+                                                                                        <td>tem.DapAn</td>
+
+
+                                                                                    </tr>
+
+
+
+
+
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+
+                                                                        <div class="modal-footer no-margin-top">
+                                                                            <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                                                                                <i class="ace-icon fa fa-times"></i>
+                                                                                Close
+                                                                            </button>
+
+
+                                                                        </div>
+                                                                    </div><!-- /.modal-content -->
+                                                                </div><!-- /.modal-dialog -->
+                                                            </div>
+                                                        </td>
+
+                                                        <td>
+                                                            <div class="hidden-sm hidden-xs btn-group ">
+
+
+                                                                <button class="btn btn-xs btn-info">
+                                                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                                </button>
+
+                                                                <button class="btn btn-xs btn-danger">
+                                                                    <i class="ace-icon fa fa-trash-o bigger-120">
+                                                                        @Html.ActionLink(" ", "Delete")
+                                                                    </i>
+                                                                    @{
+                                                                        if (ViewBag.msgDelete != null)
+                                                                        {
+                                                                            int check = (int)ViewBag.msgDelete;
+                                                                            if (check == 1)
+                                                                            {
+                                                                                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                                                                            }
+                                                                        }
+
+                                                                    }
+                                                                </button>
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>haha...<a href="#modal3" role="button" class="green" data-toggle="modal">Xem thêm</a></td>
+                                                        <td>
+
+
+                                                            <div id="modal3" class="modal fade" tabindex="-1">
+                                                                <div class="modal-dialog" style="width:fit-content">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header no-padding">
+                                                                            <div class="table-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                                                    <span class="white">&times;</span>
+                                                                                </button>
+                                                                                <audio class="html5_audio" controls=""><source src="https://noidung.tienganh123.com/file/luyen-thi-toeic/part1%20practice/in%20the%20office%201/in%20the%20office%201.mp3" type="audio/mpeg">                       Your browser does not support the audio element.                    </audio>
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="modal-body no-padding">
+                                                                            <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Domain</th>
+                                                                                        <th>Price</th>
+                                                                                        <th>Clicks</th>
+
+                                                                                        <th>
+                                                                                            <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                                                                            Update
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+
+                                                                                <tbody>
+
+                                                                                    <tr>
+
+
+
+                                                                                        <td>TieuDe</td>
+                                                                                        <td><img height="150" class="thumbnail inline no-margin-bottom" alt="lỗi" src="">A</td>
+                                                                                        <td><img height="150" class="thumbnail inline no-margin-bottom" alt="lỗi" src="">B</td>
+                                                                                        <td><img height="150" class="thumbnail inline no-margin-bottom" alt="lỗi" src="">C</td>
+
+                                                                                        <td>Đáp Án: DapAn</td>
+
+                                                                                        <td>
+                                                                                            <div class="hidden-sm hidden-xs btn-group">
+
+
+                                                                                                <button class="btn btn-xs btn-info">
+                                                                                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                                                                </button>
+
+
+
+
+                                                                                            </div>
+
+
+                                                                                        </td>
+                                                                                    </tr>
+
+
+
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+
+                                                                        <div class="modal-footer no-margin-top">
+                                                                            <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                                                                                <i class="ace-icon fa fa-times"></i>
+                                                                                Close
+                                                                            </button>
+
+                                                                            <ul class="pagination pull-right no-margin">
+                                                                                <li class="prev disabled">
+                                                                                    <a href="#">
+                                                                                        <i class="ace-icon fa fa-angle-double-left"></i>
+                                                                                    </a>
+                                                                                </li>
+
+                                                                                <li class="active">
+                                                                                    <a href="#">1</a>
+                                                                                </li>
+
+                                                                                <li>
+                                                                                    <a href="#">2</a>
+                                                                                </li>
+
+                                                                                <li>
+                                                                                    <a href="#">3</a>
+                                                                                </li>
+
+                                                                                <li class="next">
+                                                                                    <a href="#">
+                                                                                        <i class="ace-icon fa fa-angle-double-right"></i>
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div><!-- /.modal-content -->
+                                                                </div><!-- /.modal-dialog -->
+                                                            </div>
+
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        }
+
+                    </tbody>
+
+                </table>
+            </div><!-- /.span -->
+        </div><!-- /.row -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div style="display: none">
+                    <table id="dynamic-table" class="table table-striped table-bordered table-hover"></table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="hr hr-18 dotted hr-double"></div>
+
+
+        <!-- poup them nghe -->
+        <div id="modal-table" class="modal fade" tabindex="-1">
+            <div class="col-md-1"></div>
+            <div class=" col-md-10 ">
+                <div class="modal-content">
+                    <div class="modal-header no-padding">
+                        <div class="table-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <span class="white">&times;</span>
+                            </button>
+                            Thêm câu hỏi phần nghe
+                        </div>
+                    </div>
+
+                    <div class="modal-body no-padding">
+                        <div class="row">
+                            <!-- form them cau hoi -->
+                            <div class="col-xs-12">
+                                <!-- PAGE CONTENT BEGINS -->
+                                <form class="form-horizontal" role="form">
+
+
+                                    <div class="space-6"></div>
+                                    <div class="col-sm-3"></div>
+
+                                    <div class="form-group col-xs-3 control-label no-padding-right">
+                                        <label class="control-label  col-sm-3 control-label no-padding-right" for="food">Chủ đề</label>
+
+                                        <div class="col-xs-3 col-sm-3">
+                                            <select id="food" class="multiselect" multiple="">
+                                                <option value="cheese">Nghe</option>
+                                                <option value="tomatoes">Nói</option>
+                                                <option value="mozarella">Đọc</option>
+                                                <option value="mushrooms">Viết</option>
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-xs-6 control-label no-padding-right">
+                                        <label class="control-label  col-sm-3 control-label no-padding-right" for="food">Part</label>
+
+                                        <div class="col-xs-1 col-sm-1">
+                                            <select id="food" class="multiselect" multiple="">
+                                                <option value="cheese">1</option>
+                                                <option value="tomatoes">2</option>
+                                                <option value="mozarella">3</option>
+                                                <option value="mushrooms">4</option>
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label class="col-sm-3 control-label no-padding-right">Nội dung câu hỏi </label>
+                                        <div class="col-xs-1"></div>
+
+                                        <div class="widget-box widget-color-green col-sm-7 control-label no-padding-left">
+                                            <div class="widget-header widget-header-small">  </div>
+
+                                            <div class="widget-body">
+                                                <div class="widget-main no-padding">
+                                                    <div class="wysiwyg-editor" id="editor2"></div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Phương án lựa chọn </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Đáp án A: </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="form-field-1-1" placeholder="Dáp Án A" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Đáp án B: </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="form-field-1-1" placeholder="Dáp Án B" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Đáp án C: </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="form-field-1-1" placeholder="Dáp Án C" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Đáp án D: </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="form-field-1-1" placeholder="Dáp Án D" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Đáp Án </label>
+
+                                        <div class="col-xs-3 col-sm-1">
+                                            <select id="food" class="multiselect" multiple="">
+                                                <option value="cheese">A</option>
+                                                <option value="tomatoes">B</option>
+                                                <option value="mozarella">C</option>
+                                                <option value="mushrooms">D</option>
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <div class="hr hr-16 hr-dotted"></div>
+
+                                    <div class="clearfix form-actions">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button class="btn btn-info" type="button">
+                                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                                Submit
+                                            </button>
+
+                                            &nbsp; &nbsp; &nbsp;
+                                            <button class="btn" type="reset">
+                                                <i class="ace-icon fa fa-undo bigger-110"></i>
+                                                Reset
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <!-- PAGE CONTENT ENDS -->
+                            </div><!-- /.col -->
+                        </div><!-- /.row -->
+                    </div>
+
+                    <div class="modal-footer no-margin-top">
+                        <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                            <i class="ace-icon fa fa-times"></i>
+                            Close
+                        </button>
+                        <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                            <i class="ace-icon fa fa-check"></i>
+                            Submit
+                        </button>
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+        <!-- PAGE CONTENT ENDS -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
