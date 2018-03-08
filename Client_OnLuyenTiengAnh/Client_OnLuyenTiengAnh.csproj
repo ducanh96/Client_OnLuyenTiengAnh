@@ -319,6 +319,12 @@
     <Content Include="Areas\Admin\Views\DeThi\_DocBienQuangCao.cshtml" />
     <Content Include="Areas\Admin\Views\DeThi\_DocHieuDoanVan.cshtml" />
     <Content Include="Areas\Admin\Views\DeThi\_DocDienTu.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\ThemDeThiTuVungNguPhap.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\Nghe.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\_NgheTranhVe.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\_NgheDoanHoiThoai.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\_NgheDienTu.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\_NgheYesNo.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />

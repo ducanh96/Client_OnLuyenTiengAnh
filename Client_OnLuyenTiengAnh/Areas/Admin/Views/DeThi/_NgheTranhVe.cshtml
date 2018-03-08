@@ -1,6 +1,6 @@
-﻿@using Client_OnLuyenTiengAnh.Areas.Admin.Models;
-@{
-    List<DeThi> dsBienQC = (List<DeThi>)ViewBag.dsBienQC;
+﻿@using  Client_OnLuyenTiengAnh.Areas.Admin.Models
+@{ 
+    List<DeThi> dsNgheTranh = (List<DeThi>)ViewBag.dsNgheTranh;
 }
 <div class="row">
     <div class="col-xs-12">
@@ -20,7 +20,7 @@
 
                 </span>
                 <span class="input-group-btn" style="padding-left: 150px;padding-right: 140px;">
-                    <a href="@Url.Action("ThemDeThiDocBienQC")" role="button" class="green" data-toggle="modal">
+                    <a href="@Url.Action("ThemDeThiNgheTranh")" role="button" class="green" data-toggle="modal">
                         <button type="button" class="btn btn-success btn-sm">
                             <span class="ace-icon fa fa-pencil-square-o icon-on-right bigger-110"></span>
                             Tạo đề thi
@@ -55,7 +55,7 @@
                     </thead>
 
                     <tbody>
-                        @for (int i = 0; i < dsBienQC.Count; i++)
+                        @for (int i = 0; i < dsNgheTranh.Count; i++)
                         {
                             <tr>
 
@@ -63,7 +63,7 @@
                                 <td>@(i + 1)</td>
 
                                 <td>
-                                    @dsBienQC[i].MaDe
+                                    @dsNgheTranh[i].MaDe
                                 </td>
 
 
@@ -74,7 +74,7 @@
 
                                 <td>
                                     <div class="hidden-sm hidden-xs btn-group">
-                                        <a href="@Url.Action("XemCTDeThiDocBienQC",new { maDeThi = dsBienQC[i].Id})" target="_blank" role="button" data-toggle="modal">
+                                        <a href="@Url.Action("XemCTDeThiNgheTranh",new { maDeThi = @dsNgheTranh[i].Id})" target="_blank" role="button" data-toggle="modal">
                                             <button class="btn btn-xs btn-info">
                                                 <i class="ace-icon fa fa-check bigger-120">xem chi tiết</i>
                                             </button>

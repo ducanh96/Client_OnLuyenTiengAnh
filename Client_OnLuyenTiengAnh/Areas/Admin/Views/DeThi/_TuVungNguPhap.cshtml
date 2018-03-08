@@ -20,7 +20,7 @@
 
                 </span>
                 <span class="input-group-btn" style="padding-left: 150px;padding-right: 140px;">
-                    <a href="@Url.Action("ThemDeThiNguPhapTuVung")" role="button" class="green" data-toggle="modal">
+                    <a href="@Url.Action("ThemDeThiTuVungNguPhap")" role="button" class="green" data-toggle="modal">
                         <button type="button" class="btn btn-success btn-sm">
                             <span class="ace-icon fa fa-pencil-square-o icon-on-right bigger-110"></span>
                             Tạo đề thi
@@ -74,7 +74,7 @@
 
                                 <td>
                                     <div class="hidden-sm hidden-xs btn-group">
-                                        <a href="@Url.Action("XemCTDeThiNPTV",new { maDeThi = @dsTuVung[i].Id})" target="_blank" role="button" data-toggle="modal">
+                                        <a href="@Url.Action("XemCTDeThiNPTV",new { maDeThi = dsTuVung[i].Id})" target="_blank" role="button" data-toggle="modal">
                                             <button class="btn btn-xs btn-info">
                                                 <i class="ace-icon fa fa-check bigger-120">xem chi tiết</i>
                                             </button>

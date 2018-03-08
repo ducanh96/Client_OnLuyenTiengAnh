@@ -29,7 +29,8 @@ namespace Client_OnLuyenTiengAnh.Testing
         [DataTestMethod]
         [DataRow(1)]
         [DataRow(2)]
-        [DataRow(2)]
+        [DataRow(3)]
+        [DataRow(4)]
         public async Task TestGetListDeThi_ChuDe(int maChuDe)
         {
 

@@ -1,6 +1,6 @@
-﻿@using Client_OnLuyenTiengAnh.Areas.Admin.Models;
+﻿@using Client_OnLuyenTiengAnh.Areas.Admin.Models
 @{
-    List<DeThi> dsBienQC = (List<DeThi>)ViewBag.dsBienQC;
+    List<DeThi> dsNgheDienTu = (List<DeThi>)ViewBag.dsNgheDienTu;
 }
 <div class="row">
     <div class="col-xs-12">
@@ -20,7 +20,7 @@
 
                 </span>
                 <span class="input-group-btn" style="padding-left: 150px;padding-right: 140px;">
-                    <a href="@Url.Action("ThemDeThiDocBienQC")" role="button" class="green" data-toggle="modal">
+                    <a href="@Url.Action("ThemDeThiNgheDienTu")" role="button" class="green" data-toggle="modal">
                         <button type="button" class="btn btn-success btn-sm">
                             <span class="ace-icon fa fa-pencil-square-o icon-on-right bigger-110"></span>
                             Tạo đề thi
@@ -46,7 +46,7 @@
                             </th>
 
                             <th class="center">Mã đề</th>
-                            <th class="center">Hoạt động</th>
+                            <th class="center">Số file nghe</th>
 
 
 
@@ -55,7 +55,7 @@
                     </thead>
 
                     <tbody>
-                        @for (int i = 0; i < dsBienQC.Count; i++)
+                        @for (int i = 0; i < dsNgheDienTu.Count; i++)
                         {
                             <tr>
 
@@ -63,7 +63,7 @@
                                 <td>@(i + 1)</td>
 
                                 <td>
-                                    @dsBienQC[i].MaDe
+                                    @dsNgheDienTu[i].MaDe
                                 </td>
 
 
@@ -74,7 +74,7 @@
 
                                 <td>
                                     <div class="hidden-sm hidden-xs btn-group">
-                                        <a href="@Url.Action("XemCTDeThiDocBienQC",new { maDeThi = dsBienQC[i].Id})" target="_blank" role="button" data-toggle="modal">
+                                        <a href="@Url.Action("XemCTDeThiNgheDienTu",new { maDeThi = dsNgheDienTu[i].Id})" target="_blank" role="button" data-toggle="modal">
                                             <button class="btn btn-xs btn-info">
                                                 <i class="ace-icon fa fa-check bigger-120">xem chi tiết</i>
                                             </button>
@@ -90,8 +90,6 @@
 
                                             </button>
                                         </a>
-
-
 
                                     </div>
                                 </td>
