@@ -13,11 +13,16 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
     {
         public ChuDeAppService _chuDeAppService { get; set; }
         public DeThiAppService _deThiAppService { get; set; }
+        public CauHoiAppService _cauHoiAppService { get; set; }
+        public List<DeThi> DeThiTVNP { get; set; }
 
         public DeThiController()
         {
             _chuDeAppService = new ChuDeAppService();
             _deThiAppService = new DeThiAppService();
+            _cauHoiAppService = new CauHoiAppService();
+            DeThiTVNP = new List<DeThi>();
+            Task.Run(async () => { DeThiTVNP = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.TuVungNguPhap) as List<DeThi>; }).Wait();
         }
 
         // GET: Admin/DeThi
@@ -48,7 +53,8 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
         [ChildActionOnly]
         public ActionResult _TuVungNguPhap()
         {
-            Task.Run(async () => { ViewBag.dsTuVung = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.TuVungNguPhap) as List<DeThi>; }).Wait();
+            
+            ViewBag.dsTuVung = DeThiTVNP;
             return PartialView();
         }
 
@@ -79,10 +85,81 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
                #region Thêm đề thi từ vựng ngữ pháp
         public ActionResult ThemDeThiTuVungNguPhap()
         {
-            
 
-            return View();
+           
+            List<CauHoi> dsChNguPhap = new List<CauHoi>();
+            Task.Run(async () => { dsChNguPhap = await _cauHoiAppService.GetListCauHoi_KhongThuocDeThi((int)DSCHUDE.TuVungNguPhap) as List<CauHoi>; }).Wait();
+           
+            //lay ra số đề thi thuộc chủ đề đang làm
+           
+            var count = DeThiTVNP.Count;
+          
+            string maDe = string.Format("Đề {0}", count + 1);
+            ViewBag.maDe = maDe;
+
+            return View(dsChNguPhap);
+
+            
         }
+
+        [HttpPost]
+        public ActionResult ThemDeThiNguPhapTuVung(int[] maCH)
+        {
+            bool status = false;
+            List<CauHoi> dsChNguPhap = new List<CauHoi>();
+            Task.Run(async () => { dsChNguPhap = await _cauHoiAppService.GetListCauHoi_KhongThuocDeThi((int)DSCHUDE.TuVungNguPhap) as List<CauHoi>; }).Wait();
+            var dsChDuocChon = new List<CauHoi>();
+            dsChDuocChon = _cauHoiAppService.LayDSCHDuocChon(maCH, dsChNguPhap);
+
+
+
+            //lay ra số đề thi thuộc chủ đề đang làm
+
+            var count = DeThiTVNP.Count;
+
+            //int count = new DeThi().XemDSDeThi(1).Count;
+            string maDe = string.Format("Đề {0}", count + 1);
+            
+            DeThi deThi = new DeThi
+            {
+                MaDe = maDe,
+                IDChuDe = (int)DSCHUDE.TuVungNguPhap
+            };
+
+
+            //int IDDeThi = deThiUI.ThemDeThi(deThi);
+            Task.Run(async () => { status = await _deThiAppService.Add(deThi); }).Wait();
+
+            int IdDeThi = 0;
+            Task.Run(async () => { IdDeThi = await _deThiAppService.GetLastId("DeThi"); }).Wait();
+
+
+            foreach (var item in maCH)
+            {
+                Task.Run(async () => { await _deThiAppService.UpdateCauHoi_DeThi(item,IdDeThi); }).Wait();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+        public ActionResult ThemDeThiDocBienQC()
+        {
+
+            List<DeThi> dsDeThi = new List<DeThi>();
+            List<CauHoi> dsBienQC = new List<CauHoi>();
+            Task.Run(async () => { dsBienQC = await _cauHoiAppService.GetListCauHoi_KhongThuocDeThi((int)DSCHUDE.DocBienQuangCao) as List<CauHoi>; }).Wait();
+
+            //lay ra số đề thi thuộc chủ đề đang làm
+            Task.Run(async () => { dsDeThi = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.TuVungNguPhap) as List<DeThi>; }).Wait();
+            //lay ra số đề thi thuộc chủ đề đang làm
+            int count = dsDeThi.Count;
+            string maDe = string.Format("Đề {0}", count + 1);
+            ViewBag.maDe = maDe;
+
+            return View(dsBienQC);
+        }
+
 
         #endregion
 

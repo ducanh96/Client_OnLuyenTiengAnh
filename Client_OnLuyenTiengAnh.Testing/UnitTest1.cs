@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Client_OnLuyenTiengAnh.Areas.Admin.AppService;
 
 using Client_OnLuyenTiengAnh.Areas.Admin.Models;
+using Client_OnLuyenTiengAnh.Areas.Admin.Request;
 using Client_OnLuyenTiengAnh.Areas.Admin.Service;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -43,5 +44,45 @@ namespace Client_OnLuyenTiengAnh.Testing
 
         }
 
+        //[TestMethod]
+       
+        //public async Task TestAddDeThi()
+        //{
+        //    DeThi deThi = new DeThi
+        //    {
+              
+        //           Id = 0,
+        //           MaDe = "Đề 2",
+        //           IDChuDe = 3
+               
+        //    };
+        //    DeThiAppService deThiAppService = new DeThiAppService();
+        //    var tam = await deThiAppService.Add(deThi);
+        //    Assert.AreEqual(tam, true);
+
+        //}
+
+        [TestMethod]
+        public async Task TestGetLastId()
+        {
+           
+            DeThiAppService deThiAppService = new DeThiAppService();
+            var tam = await deThiAppService.GetLastId("DeThi");
+            TestContext.WriteLine(tam.ToString());
+
+        }
+
+        [TestMethod]
+
+        public async Task TestUpdateCauHoi_DeThi()
+        {
+            
+                
+            
+            DeThiAppService deThiAppService = new DeThiAppService();
+            var tam = await deThiAppService.UpdateCauHoi_DeThi(1015,1019);
+            Assert.AreEqual(tam, true);
+
+        }
     }
 }

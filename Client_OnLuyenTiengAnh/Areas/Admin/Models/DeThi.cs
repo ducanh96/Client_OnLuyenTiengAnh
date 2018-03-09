@@ -9,6 +9,6 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Models
     {
         public int Id { get; set; }
         public string MaDe { get; set; }
-      
+        public int IDChuDe { get; set; }
     }
 }
