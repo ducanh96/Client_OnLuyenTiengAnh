@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="about">
+    {{message}}
+</div>
+<script type="text/javascript">
+    var aboutPage = new Vue({
+        el: '#about',
+        data: {
+            message: 'Xin chao cac ban'
+        }
+    });
+</script>

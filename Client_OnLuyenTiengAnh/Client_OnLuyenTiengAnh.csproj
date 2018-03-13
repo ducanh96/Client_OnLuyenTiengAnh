@@ -81,6 +81,21 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -90,21 +105,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Web.Razor">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages.Deployment">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages.Razor">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Helpers">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -285,6 +285,367 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="public\css\animate.min.css" />
+    <Content Include="public\css\bootstrap.min.css" />
+    <Content Include="public\css\easyzoom.css" />
+    <Content Include="public\css\ie-older.css" />
+    <Content Include="public\css\ionicons.min.css" />
+    <Content Include="public\css\jquery.fancybox.css" />
+    <Content Include="public\css\jquery.scrollbar.css" />
+    <Content Include="public\css\landing\app.css" />
+    <Content Include="public\css\landing\blog.css" />
+    <Content Include="public\css\landing\construction.css" />
+    <Content Include="public\css\landing\education.css" />
+    <Content Include="public\css\landing\minimalist.css" />
+    <Content Include="public\css\landing\portfolio.css" />
+    <Content Include="public\css\landing\product.css" />
+    <Content Include="public\css\landing\shop.css" />
+    <Content Include="public\css\landing\startup.css" />
+    <Content Include="public\css\no-js.css" />
+    <Content Include="public\css\slick-theme.css" />
+    <Content Include="public\css\slick.css" />
+    <Content Include="public\css\slider-pro.min.css" />
+    <Content Include="public\css\style.css" />
+    <Content Include="public\fonts\ionicons-v=2.0.0.svg" />
+    <Content Include="public\fonts\slick.svg" />
+    <Content Include="public\images\apple-touch-icon-114x114.png" />
+    <Content Include="public\images\apple-touch-icon-72x72.png" />
+    <Content Include="public\images\apple-touch-icon.png" />
+    <Content Include="public\images\bg-product-rate-val-yellow.png" />
+    <Content Include="public\images\bg-product-rate-val.png" />
+    <Content Include="public\images\bg-product-rate-white.png" />
+    <Content Include="public\images\bg-product-rate.png" />
+    <Content Include="public\images\bg-sep-border-shadow.png" />
+    <Content Include="public\images\bg-sep-border-stripes.png" />
+    <Content Include="public\images\bg-sub-header.png" />
+    <Content Include="public\images\blank.gif" />
+    <Content Include="public\images\closedhand.cur" />
+    <Content Include="public\images\content\app\1.png" />
+    <Content Include="public\images\content\app\10.png" />
+    <Content Include="public\images\content\app\2.png" />
+    <Content Include="public\images\content\app\3.png" />
+    <Content Include="public\images\content\app\4.png" />
+    <Content Include="public\images\content\app\5.png" />
+    <Content Include="public\images\content\app\6.png" />
+    <Content Include="public\images\content\app\7.png" />
+    <Content Include="public\images\content\app\8.png" />
+    <Content Include="public\images\content\app\9.png" />
+    <Content Include="public\images\content\app\l0.png" />
+    <Content Include="public\images\content\app\l1.png" />
+    <Content Include="public\images\content\app\l10.PNG" />
+    <Content Include="public\images\content\app\l11.PNG" />
+    <Content Include="public\images\content\app\l12.PNG" />
+    <Content Include="public\images\content\app\l13.PNG" />
+    <Content Include="public\images\content\app\l14.PNG" />
+    <Content Include="public\images\content\app\l2.png" />
+    <Content Include="public\images\content\app\l3.png" />
+    <Content Include="public\images\content\app\l4.png" />
+    <Content Include="public\images\content\app\l5.png" />
+    <Content Include="public\images\content\app\l6.png" />
+    <Content Include="public\images\content\app\l7.png" />
+    <Content Include="public\images\content\app\l8.PNG" />
+    <Content Include="public\images\content\app\l9.PNG" />
+    <Content Include="public\images\content\avatars\1.jpg" />
+    <Content Include="public\images\content\avatars\2.jpg" />
+    <Content Include="public\images\content\avatars\3.jpg" />
+    <Content Include="public\images\content\avatars\4.jpg" />
+    <Content Include="public\images\content\avatars\5.jpg" />
+    <Content Include="public\images\content\avatars\6.jpg" />
+    <Content Include="public\images\content\bg\1.jpg" />
+    <Content Include="public\images\content\bg\2.jpg" />
+    <Content Include="public\images\content\bg\3.jpg" />
+    <Content Include="public\images\content\bg\5.jpg" />
+    <Content Include="public\images\content\bg\6.jpg" />
+    <Content Include="public\images\content\bg\7.jpg" />
+    <Content Include="public\images\content\blog\full\1.jpg" />
+    <Content Include="public\images\content\blog\full\11.jpg" />
+    <Content Include="public\images\content\blog\full\12.jpg" />
+    <Content Include="public\images\content\blog\full\13.jpg" />
+    <Content Include="public\images\content\blog\full\14.jpg" />
+    <Content Include="public\images\content\blog\full\18.jpg" />
+    <Content Include="public\images\content\blog\full\2.jpg" />
+    <Content Include="public\images\content\blog\full\3.jpg" />
+    <Content Include="public\images\content\blog\full\4.jpg" />
+    <Content Include="public\images\content\blog\full\5.jpg" />
+    <Content Include="public\images\content\blog\full\6.jpg" />
+    <Content Include="public\images\content\blog\full\7.jpg" />
+    <Content Include="public\images\content\blog\full\8.jpg" />
+    <Content Include="public\images\content\blog\square\1.jpg" />
+    <Content Include="public\images\content\blog\square\2.jpg" />
+    <Content Include="public\images\content\blog\square\3.jpg" />
+    <Content Include="public\images\content\blog\square\4.jpg" />
+    <Content Include="public\images\content\blog\square\5.jpg" />
+    <Content Include="public\images\content\blog\square\6.jpg" />
+    <Content Include="public\images\content\blog\square\7.jpg" />
+    <Content Include="public\images\content\blog\square\8.jpg" />
+    <Content Include="public\images\content\blog\thumb\1.jpg" />
+    <Content Include="public\images\content\blog\thumb\10.jpg" />
+    <Content Include="public\images\content\blog\thumb\11.jpg" />
+    <Content Include="public\images\content\blog\thumb\12.jpg" />
+    <Content Include="public\images\content\blog\thumb\13.jpg" />
+    <Content Include="public\images\content\blog\thumb\18.jpg" />
+    <Content Include="public\images\content\blog\thumb\2.jpg" />
+    <Content Include="public\images\content\blog\thumb\3.jpg" />
+    <Content Include="public\images\content\blog\thumb\4.jpg" />
+    <Content Include="public\images\content\blog\thumb\5.jpg" />
+    <Content Include="public\images\content\blog\thumb\6.jpg" />
+    <Content Include="public\images\content\blog\thumb\7.jpg" />
+    <Content Include="public\images\content\blog\thumb\8.jpg" />
+    <Content Include="public\images\content\blog\thumb\9.jpg" />
+    <Content Include="public\images\content\clients\1.png" />
+    <Content Include="public\images\content\clients\2.png" />
+    <Content Include="public\images\content\clients\3.png" />
+    <Content Include="public\images\content\clients\4.png" />
+    <Content Include="public\images\content\clients\5.png" />
+    <Content Include="public\images\content\clients\6.png" />
+    <Content Include="public\images\content\custom\listening.png" />
+    <Content Include="public\images\content\custom\reading.jpg" />
+    <Content Include="public\images\content\custom\speaking.png" />
+    <Content Include="public\images\content\custom\writing.png" />
+    <Content Include="public\images\content\demos\thumb\1.jpg" />
+    <Content Include="public\images\content\demos\thumb\10.jpg" />
+    <Content Include="public\images\content\demos\thumb\11.jpg" />
+    <Content Include="public\images\content\demos\thumb\12.jpg" />
+    <Content Include="public\images\content\demos\thumb\13.jpg" />
+    <Content Include="public\images\content\demos\thumb\14.jpg" />
+    <Content Include="public\images\content\demos\thumb\15.jpg" />
+    <Content Include="public\images\content\demos\thumb\16.jpg" />
+    <Content Include="public\images\content\demos\thumb\2.jpg" />
+    <Content Include="public\images\content\demos\thumb\3.jpg" />
+    <Content Include="public\images\content\demos\thumb\4.jpg" />
+    <Content Include="public\images\content\demos\thumb\5.jpg" />
+    <Content Include="public\images\content\demos\thumb\6.jpg" />
+    <Content Include="public\images\content\demos\thumb\7.jpg" />
+    <Content Include="public\images\content\demos\thumb\8.jpg" />
+    <Content Include="public\images\content\demos\thumb\9.jpg" />
+    <Content Include="public\images\content\icon\icon_hot.png" />
+    <Content Include="public\images\content\landing\app\1.png" />
+    <Content Include="public\images\content\landing\app\2.png" />
+    <Content Include="public\images\content\landing\app\3.png" />
+    <Content Include="public\images\content\landing\app\4.png" />
+    <Content Include="public\images\content\landing\app\5.png" />
+    <Content Include="public\images\content\landing\app\icons\icon-award-1.png" />
+    <Content Include="public\images\content\landing\app\icons\icon-award-2.png" />
+    <Content Include="public\images\content\landing\app\icons\icon-award-3.png" />
+    <Content Include="public\images\content\landing\app\icons\icon-award-4.png" />
+    <Content Include="public\images\content\landing\app\icons\icon-award-5.png" />
+    <Content Include="public\images\content\landing\app\screenshots\1.jpg" />
+    <Content Include="public\images\content\landing\app\screenshots\2.jpg" />
+    <Content Include="public\images\content\landing\app\screenshots\3.jpg" />
+    <Content Include="public\images\content\landing\app\screenshots\4.jpg" />
+    <Content Include="public\images\content\landing\app\screenshots\5.jpg" />
+    <Content Include="public\images\content\landing\app\screenshots\6.jpg" />
+    <Content Include="public\images\content\landing\construction\1.png" />
+    <Content Include="public\images\content\landing\construction\portfolios\full\1.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\full\2.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\full\3.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\full\4.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\full\5.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\full\6.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\full\7.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\full\8.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\thumb\1.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\thumb\2.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\thumb\3.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\thumb\4.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\thumb\5.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\thumb\6.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\thumb\7.jpg" />
+    <Content Include="public\images\content\landing\construction\portfolios\thumb\8.jpg" />
+    <Content Include="public\images\content\landing\construction\sliders\1.jpg" />
+    <Content Include="public\images\content\landing\construction\sliders\2.jpg" />
+    <Content Include="public\images\content\landing\construction\sliders\3.jpg" />
+    <Content Include="public\images\content\landing\education\1.jpg" />
+    <Content Include="public\images\content\landing\education\2.jpg" />
+    <Content Include="public\images\content\landing\education\3.jpg" />
+    <Content Include="public\images\content\landing\education\4.jpg" />
+    <Content Include="public\images\content\landing\education\5.jpg" />
+    <Content Include="public\images\content\landing\education\6.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\full\1.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\full\2.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\full\3.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\full\4.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\full\5.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\full\6.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\thumb\1.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\thumb\2.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\thumb\3.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\thumb\4.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\thumb\5.jpg" />
+    <Content Include="public\images\content\landing\education\galleries\thumb\6.jpg" />
+    <Content Include="public\images\content\landing\feature-1.png" />
+    <Content Include="public\images\content\landing\feature-highlight.png" />
+    <Content Include="public\images\content\landing\menu-img.png" />
+    <Content Include="public\images\content\landing\menu-img2.png" />
+    <Content Include="public\images\content\landing\product\products\1.png" />
+    <Content Include="public\images\content\landing\product\products\2.png" />
+    <Content Include="public\images\content\landing\product\products\3.png" />
+    <Content Include="public\images\content\landing\product\products\4.png" />
+    <Content Include="public\images\content\landing\product\products\5.png" />
+    <Content Include="public\images\content\landing\product\products\collection\1.png" />
+    <Content Include="public\images\content\landing\product\products\collection\2.png" />
+    <Content Include="public\images\content\landing\product\products\collection\3.png" />
+    <Content Include="public\images\content\landing\product\products\collection\4.png" />
+    <Content Include="public\images\content\landing\shop\1.jpg" />
+    <Content Include="public\images\content\landing\shop\2.jpg" />
+    <Content Include="public\images\content\landing\shop\3.jpg" />
+    <Content Include="public\images\content\landing\shop\cats\1.jpg" />
+    <Content Include="public\images\content\landing\shop\cats\2.jpg" />
+    <Content Include="public\images\content\landing\shop\cats\3.jpg" />
+    <Content Include="public\images\content\landing\shop\cats\4.jpg" />
+    <Content Include="public\images\content\landing\startup\2.png" />
+    <Content Include="public\images\content\portfolios\full\1.jpg" />
+    <Content Include="public\images\content\portfolios\full\10.jpg" />
+    <Content Include="public\images\content\portfolios\full\16.jpg" />
+    <Content Include="public\images\content\portfolios\full\2.jpg" />
+    <Content Include="public\images\content\portfolios\full\3.jpg" />
+    <Content Include="public\images\content\portfolios\full\4.jpg" />
+    <Content Include="public\images\content\portfolios\full\5.jpg" />
+    <Content Include="public\images\content\portfolios\full\6.jpg" />
+    <Content Include="public\images\content\portfolios\full\7.jpg" />
+    <Content Include="public\images\content\portfolios\full\8.jpg" />
+    <Content Include="public\images\content\portfolios\square\1.jpg" />
+    <Content Include="public\images\content\portfolios\square\10.jpg" />
+    <Content Include="public\images\content\portfolios\square\11.jpg" />
+    <Content Include="public\images\content\portfolios\square\12.jpg" />
+    <Content Include="public\images\content\portfolios\square\13.jpg" />
+    <Content Include="public\images\content\portfolios\square\14.jpg" />
+    <Content Include="public\images\content\portfolios\square\15.jpg" />
+    <Content Include="public\images\content\portfolios\square\16.jpg" />
+    <Content Include="public\images\content\portfolios\square\17.jpg" />
+    <Content Include="public\images\content\portfolios\square\18.jpg" />
+    <Content Include="public\images\content\portfolios\square\19.jpg" />
+    <Content Include="public\images\content\portfolios\square\2.jpg" />
+    <Content Include="public\images\content\portfolios\square\20.jpg" />
+    <Content Include="public\images\content\portfolios\square\3.jpg" />
+    <Content Include="public\images\content\portfolios\square\4.jpg" />
+    <Content Include="public\images\content\portfolios\square\5.jpg" />
+    <Content Include="public\images\content\portfolios\square\6.jpg" />
+    <Content Include="public\images\content\portfolios\square\7.jpg" />
+    <Content Include="public\images\content\portfolios\square\8.jpg" />
+    <Content Include="public\images\content\portfolios\square\9.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\1.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\10.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\11.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\12.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\2.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\3.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\4.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\5.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\6.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\7.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\8.jpg" />
+    <Content Include="public\images\content\portfolios\thumb\9.jpg" />
+    <Content Include="public\images\content\products\cats\1.jpg" />
+    <Content Include="public\images\content\products\cats\2.jpg" />
+    <Content Include="public\images\content\products\cats\3.jpg" />
+    <Content Include="public\images\content\products\full\1-front.jpg" />
+    <Content Include="public\images\content\products\full\2-front.jpg" />
+    <Content Include="public\images\content\products\full\3-front.jpg" />
+    <Content Include="public\images\content\products\full\4-front.jpg" />
+    <Content Include="public\images\content\products\full\5-front.jpg" />
+    <Content Include="public\images\content\products\full\6-front.jpg" />
+    <Content Include="public\images\content\products\large\1-back.jpg" />
+    <Content Include="public\images\content\products\large\1-front.jpg" />
+    <Content Include="public\images\content\products\large\2-back.jpg" />
+    <Content Include="public\images\content\products\large\2-front.jpg" />
+    <Content Include="public\images\content\products\large\3-back.jpg" />
+    <Content Include="public\images\content\products\large\3-front.jpg" />
+    <Content Include="public\images\content\products\large\4-back.jpg" />
+    <Content Include="public\images\content\products\large\4-front.jpg" />
+    <Content Include="public\images\content\products\large\5-back.jpg" />
+    <Content Include="public\images\content\products\large\5-front.jpg" />
+    <Content Include="public\images\content\products\large\6-back.jpg" />
+    <Content Include="public\images\content\products\large\6-front.jpg" />
+    <Content Include="public\images\content\products\thumb\1-front.jpg" />
+    <Content Include="public\images\content\products\thumb\2-front.jpg" />
+    <Content Include="public\images\content\products\thumb\3-front.jpg" />
+    <Content Include="public\images\content\products\thumb\4-front.jpg" />
+    <Content Include="public\images\content\products\thumb\5-front.jpg" />
+    <Content Include="public\images\content\products\thumb\6-front.jpg" />
+    <Content Include="public\images\content\sliders\1.jpg" />
+    <Content Include="public\images\content\sliders\2.jpg" />
+    <Content Include="public\images\content\sliders\3.jpg" />
+    <Content Include="public\images\content\sliders\4.jpg" />
+    <Content Include="public\images\content\sliders\5.jpg" />
+    <Content Include="public\images\content\sliders\6.jpg" />
+    <Content Include="public\images\content\sliders\8.jpg" />
+    <Content Include="public\images\content\sliders\9.jpg" />
+    <Content Include="public\images\fancybox_blank.gif" />
+    <Content Include="public\images\fancybox_loading%402x.gif" />
+    <Content Include="public\images\fancybox_loading.gif" />
+    <Content Include="public\images\fancybox_overlay.png" />
+    <Content Include="public\images\fancybox_sprite%402x.png" />
+    <Content Include="public\images\fancybox_sprite.png" />
+    <Content Include="public\images\favicon.ico" />
+    <Content Include="public\images\icon-form-search-hover.png" />
+    <Content Include="public\images\icon-form-search.png" />
+    <Content Include="public\images\ie-bg-black-40.png" />
+    <Content Include="public\images\ie-bg-black-50.png" />
+    <Content Include="public\images\ie-bg-black-80.png" />
+    <Content Include="public\images\ie-bg-dark-10.png" />
+    <Content Include="public\images\ie-bg-dark-20.png" />
+    <Content Include="public\images\ie-bg-dark-30.png" />
+    <Content Include="public\images\ie-bg-dark-40.png" />
+    <Content Include="public\images\ie-bg-dark-50.png" />
+    <Content Include="public\images\ie-bg-dark-60.png" />
+    <Content Include="public\images\ie-bg-dark-70.png" />
+    <Content Include="public\images\ie-bg-dark-80.png" />
+    <Content Include="public\images\ie-bg-dark-90.png" />
+    <Content Include="public\images\ie-bg-white-10.png" />
+    <Content Include="public\images\ie-bg-white-20.png" />
+    <Content Include="public\images\ie-bg-white-25.png" />
+    <Content Include="public\images\ie-bg-white-30.png" />
+    <Content Include="public\images\ie-bg-white-40.png" />
+    <Content Include="public\images\ie-bg-white-45.png" />
+    <Content Include="public\images\ie-bg-white-50.png" />
+    <Content Include="public\images\ie-bg-white-60.png" />
+    <Content Include="public\images\ie-bg-white-70.png" />
+    <Content Include="public\images\ie-bg-white-80.png" />
+    <Content Include="public\images\ie-bg-white-90.png" />
+    <Content Include="public\images\ie-progress-bar-line-val-arrow.png" />
+    <Content Include="public\images\loader.gif" />
+    <Content Include="public\images\logo-sm.png" />
+    <Content Include="public\images\logo-white-big.png" />
+    <Content Include="public\images\logo-white.png" />
+    <Content Include="public\images\logo.png" />
+    <Content Include="public\images\logo2.png" />
+    <Content Include="public\images\openhand.cur" />
+    <Content Include="public\js\bootstrap.min.js" />
+    <Content Include="public\js\easyzoom.js" />
+    <Content Include="public\js\gmaps.js" />
+    <Content Include="public\js\html5.js" />
+    <Content Include="public\js\isotope.pkgd.min.js" />
+    <Content Include="public\js\jquery-1.12.4.min.js" />
+    <Content Include="public\js\jquery-migrate-1.4.1.min.js" />
+    <Content Include="public\js\jquery.countdown.min.js" />
+    <Content Include="public\js\jquery.counterup.min.js" />
+    <Content Include="public\js\jquery.easing.min.js" />
+    <Content Include="public\js\jquery.fancybox-media.js" />
+    <Content Include="public\js\jquery.fancybox.pack.js" />
+    <Content Include="public\js\jquery.fitvids.js" />
+    <Content Include="public\js\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="public\js\jquery.placeholder.min.js" />
+    <Content Include="public\js\jquery.plugin.min.js" />
+    <Content Include="public\js\jquery.scroll-with-ease.js" />
+    <Content Include="public\js\jquery.scrollbar.min.js" />
+    <Content Include="public\js\jquery.sliderPro.min.js" />
+    <Content Include="public\js\parallax.min.js" />
+    <Content Include="public\js\respond.min.js" />
+    <Content Include="public\js\response.min.js" />
+    <Content Include="public\js\script.js" />
+    <Content Include="public\js\slick.min.js" />
+    <Content Include="public\js\waypoints.min.js" />
+    <Content Include="Scripts\app\LFillingWords.js" />
+    <Content Include="Scripts\app\LFillingWords.jsx" />
+    <Content Include="Scripts\app\LMCQ.jsx" />
+    <Content Include="Scripts\app\LPicture.jsx" />
+    <Content Include="Scripts\app\RBillboard.jsx" />
+    <Content Include="Scripts\app\RFillingWords.js" />
+    <Content Include="Scripts\app\RFillingWords.jsx" />
+    <Content Include="Scripts\app\RUnderstanding.jsx" />
+    <Content Include="Scripts\app\RVocabulary.jsx" />
+    <Content Include="Scripts\app\WRewriteSentences.jsx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -326,6 +687,15 @@
     <Content Include="Areas\Admin\Views\DeThi\_NgheDienTu.cshtml" />
     <Content Include="Areas\Admin\Views\DeThi\_NgheYesNo.cshtml" />
     <Content Include="Areas\Admin\Views\DeThi\ThemDeThiDocBienQC.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\ThemDeThiNgheTranh.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\XemCTDeThiNgheTranh.cshtml" />
+    <Content Include="public\fonts\ionicons-v=2.0.0.eot" />
+    <Content Include="public\fonts\ionicons-v=2.0.0.ttf" />
+    <Content Include="public\fonts\ionicons-v=2.0.0.woff" />
+    <Content Include="public\fonts\slick-.eot" />
+    <Content Include="public\fonts\slick.eot" />
+    <Content Include="public\fonts\slick.ttf" />
+    <Content Include="public\fonts\slick.woff" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -340,6 +710,8 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -356,6 +728,7 @@
     <Compile Include="Areas\Admin\Models\CauHoi.cs" />
     <Compile Include="Areas\Admin\Models\ChuDe.cs" />
     <Compile Include="Areas\Admin\Models\DeThi.cs" />
+    <Compile Include="Areas\Admin\Models\Nghe.cs" />
     <Compile Include="Areas\Admin\Request\DeThiAddRequest.cs" />
     <Compile Include="Areas\Admin\Request\UpdateCauHoi_DeThiRequest.cs" />
     <Compile Include="Areas\Admin\Response\BaseResponse.cs" />
@@ -363,6 +736,7 @@
     <Compile Include="Areas\Admin\Response\DeThiAddResponse.cs" />
     <Compile Include="Areas\Admin\Response\GetListCauHoi_KhongThuocDeThiResponse.cs" />
     <Compile Include="Areas\Admin\Response\GetListDeThi_ChuDeResponse.cs" />
+    <Compile Include="Areas\Admin\Response\GetListNghe_CauHoiResponse.cs" />
     <Compile Include="Areas\Admin\Service\CauHoiService.cs" />
     <Compile Include="Areas\Admin\Service\ChuDeService.cs" />
     <Compile Include="Areas\Admin\Service\DeThiService.cs" />
@@ -390,7 +764,21 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\ListeningFillingWords.cshtml" />
+    <Content Include="Views\Home\ListeningMCQuestions.cshtml" />
+    <Content Include="Views\Home\ListeningPicture.cshtml" />
+    <Content Include="Views\Home\ReadingBillboard.cshtml" />
+    <Content Include="Views\Home\ReadingFillingWords.cshtml" />
+    <Content Include="Views\Home\ReadingUnderstanding.cshtml" />
+    <Content Include="Views\Home\ReadingVocabulary.cshtml" />
+    <Content Include="Views\Home\SpeakingInterview.cshtml" />
+    <Content Include="Views\Home\WritingLetter.cshtml" />
+    <Content Include="Views\Home\WritingRewriteSentences.cshtml" />
+    <Content Include="Views\Home\WritingStory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -401,7 +789,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

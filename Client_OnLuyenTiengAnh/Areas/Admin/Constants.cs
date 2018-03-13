@@ -20,7 +20,11 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin
         public static string AddDeThi = "api/v1/DeThi";
         public static string GetLastId = "api/v1/DeThi/GetLastId?table={0}";
         public static string UpdateCauHoi_DeThi = "api/v1/DeThi/UpdateCauHoi";
+        public static string GetListNghe_CauHoi = "api/v1/CauHoi/Nghe/{0}";
+
 
         #endregion
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Client_OnLuyenTiengAnh.Areas.Admin.Models;
+using Client_OnLuyenTiengAnh.Areas.Admin.Response;
 using Client_OnLuyenTiengAnh.Areas.Admin.Service;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,11 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.AppService
         public List<CauHoi> LayDSCHDuocChon(int[] IDCauHoiDuocChon, List<CauHoi> lstCHKhongThuocDT)
         {
             return _cauHoiService.LayDSCHDuocChon(IDCauHoiDuocChon, lstCHKhongThuocDT);
+        }
+
+        public async Task<IEnumerable<GetListNghe_CauHoiResponse>> GetListNghe_CauHoi(int maTopic)
+        {
+            return await _cauHoiService.GetListNghe_CauHoi(maTopic) as List<GetListNghe_CauHoiResponse>;
         }
     }
 }

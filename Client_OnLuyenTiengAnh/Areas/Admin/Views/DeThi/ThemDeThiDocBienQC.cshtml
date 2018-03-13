@@ -1,8 +1,75 @@
-﻿
+﻿@using Client_OnLuyenTiengAnh.Areas.Admin.Models
+@model List<CauHoi>
 @{
     ViewBag.Title = "ThemDeThiDocBienQC";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    string maDe = ViewBag.maDe;
 }
 
-<h2>ThemDeThiDocBienQC</h2>
 
+
+<h2 class="center">Thêm đề thi phần đọc biển quảng cáo</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm("ThemDeThiDocBienQC", "DeThi", FormMethod.Post))
+        {
+            <div class="center">
+                <label>Mã đề: </label><input type="text" value="@maDe" disabled="disabled" />
+            </div>
+            <br />
+            <br />
+
+            <table id="simple-table" class="table  table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="center">
+
+                        </th>
+                        @*<th class="detail-col">Details</th>*@
+                        <th>Đoạn quảng cáo</th>
+                        <th>Đán án A</th>
+                        <th>Đáp án B</th>
+                        <th>Đáp án C</th>
+
+                        <th>Đáp án</th>
+
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="center">
+                                <label class="pos-rel">
+                                    <input type="checkbox" class="ace" name="maCH" value="@item.ID" />
+                                    <span class="lbl"></span>
+                                </label>
+                            </td>
+                            <td><img height="150" class="thumbnail inline no-margin-bottom" alt="Ảnh không hợp lệ" src="~/Areas/admin/assets/image/@item.TieuDe"></td>
+                            <td>@item.PhuongAnA</td>
+                            <td>@item.PhuongAnB</td>
+                            <td>@item.PhuongAnC</td>
+                            <td>@item.DapAn</td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-danger btn-sm">
+                <span class="ace-icon fa fa-pencil-square-o icon-on-right bigger-110"></span>
+                Hủy
+            </button>
+            <button type="submit" class="btn btn-success btn-sm">
+                <span class="ace-icon fa fa-pencil-square-o icon-on-right bigger-110"></span>
+                Tạo đề thi
+            </button>
+
+        }
+
+
+    </div><!-- /.span -->
+</div><!-- /.row -->

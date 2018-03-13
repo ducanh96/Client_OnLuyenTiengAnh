@@ -72,16 +72,30 @@ namespace Client_OnLuyenTiengAnh.Testing
 
         }
 
-        [TestMethod]
+        //[TestMethod]
 
-        public async Task TestUpdateCauHoi_DeThi()
-        {
+        //public async Task TestUpdateCauHoi_DeThi()
+        //{
             
                 
             
-            DeThiAppService deThiAppService = new DeThiAppService();
-            var tam = await deThiAppService.UpdateCauHoi_DeThi(1015,1019);
-            Assert.AreEqual(tam, true);
+        //    DeThiAppService deThiAppService = new DeThiAppService();
+        //    var tam = await deThiAppService.UpdateCauHoi_DeThi(1015,1019);
+        //    Assert.AreEqual(tam, true);
+
+        //}
+
+        [TestMethod]
+
+        public async Task TestGetListNghe_CauHoi()
+        {
+
+           CauHoiAppService cauHoiAppService = new CauHoiAppService();
+           var tam = await cauHoiAppService.GetListNghe_CauHoi(6);
+            foreach (var item in tam)
+            {
+                TestContext.WriteLine(item.nghe.FileNghe+item.CauHois[0].ToString());
+            }
 
         }
     }

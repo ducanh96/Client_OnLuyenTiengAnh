@@ -14,5 +14,9 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Models
         public string PhuongAnC { get; set; }
         public string PhuongAnD { get; set; }
         public string DapAn { get; set; }
+        public int IDDoc { get; set; }
+        public int IDNghe { get; set; }
+        public int IDChuDe { get; set; }
+        public int IDDeThi { get; set; }
     }
 }

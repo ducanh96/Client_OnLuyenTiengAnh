@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "ListeningFillingWords";
+}
+
+<script src="~/Scripts/js/sweetalert.min.js"></script>
+
+<style>
+    #app p{
+        color: black;
+        font-size: 20px;
+    }
+    #app input {
+        color: black;
+        border: 1px solid black;
+        height: 40px;
+    }
+
+    .ion {
+        margin-left: 12px;
+    }
+</style>
+
+<div class="container-fluid" id="app">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+            <h4>List</h4>
+            <ul class="nav nav-pills nav-stacked" id="app-dt-list"></ul>
+        </div>
+
+        <div class="col-sm-9">
+            <h4><small id="app-page">R1 - Test 1</small></h4>
+            <hr>
+
+            <div>
+                <ul>
+                    <li><p>You will hear someone talking on the radio about a Language Study Fair.</p></li>
+                    <li><p>For each question, fill in the missing information in the numbered space.</p></li>
+                </ul>
+                <p><strong>Lưu ý</strong></p>
+                <ul>
+                    <li><p>Dấu ( ) - Có thể bỏ thông tin trong dấu ( )</p></li>
+                    <li>
+                        <p>Dấu / - Có thể lựa chọn một trong số các đáp án</p>
+                    </li>
+                </ul>
+            </div><br /><br />
+
+            <video controls style="width: 400px; height: 240px;">
+                <source id="app-video-src" type="audio/mp4" />
+            </video>
+            <div style="text-align: center">
+                <h4 id="app-title"></h4>
+            </div>
+
+            <form id="app-form-content">
+                <div id="app-content">
+                </div>
+
+                <footer class="container-fluid" style="margin: 10px auto;">
+                    <button class="btn btn-primary">View Result</button>
+                    <button class="btn btn-success" id="btn-retry">Try again?</button>
+                </footer>
+
+            </form>
+        </div>
+    </div>
+    
+</div>
+<br />
+<script src="~/Scripts/app/LFillingWords.js"></script>

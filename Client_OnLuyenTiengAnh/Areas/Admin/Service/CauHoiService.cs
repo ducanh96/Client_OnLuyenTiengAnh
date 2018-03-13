@@ -37,6 +37,31 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Service
             }
         }
 
+        public async Task<IEnumerable<GetListNghe_CauHoiResponse>> GetListNghe_CauHoi(int maChuDe)
+        {
+
+            using (var client = new HttpClient())
+            {
+                IEnumerable<GetListNghe_CauHoiResponse> result = null;
+                client.BaseAddress = new Uri(Constants.URI);
+
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                var response = await client.GetAsync(string.Format(Constants.GetListNghe_CauHoi, maChuDe));
+
+                if (response.IsSuccessStatusCode)
+                {
+                    result = await response.Content.ReadAsAsync<IEnumerable<GetListNghe_CauHoiResponse>>();
+
+                    
+
+                }
+
+                return result;
+
+            }
+        }
+
         public List<CauHoi> LayDSCHDuocChon(int[] IDCauHoiDuocChon, List<CauHoi> lstCHKhongThuocDT)
         {
             var dsCHDuocChon = new List<CauHoi>();

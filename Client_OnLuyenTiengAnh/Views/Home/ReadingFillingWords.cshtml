@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "ReadingFillingWords";
+}
+<script src="~/Scripts/js/sweetalert.min.js"></script>
+<style>
+    ul li {
+        list-style: none;
+        color: black;
+    }
+
+        ul li label {
+            font-size: 16px;
+            color: black;
+        }
+
+    .question-title {
+        background-color: lightblue;
+        border-radius: 5px;
+        height: 40px;
+        text-align: center
+    }
+
+    .ion {
+        margin-left: 12px;
+    }
+    #app p {
+        color: black;
+    }
+</style>
+
+
+<div class="container-fluid" id="app">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+            <h4>List</h4>
+            <ul class="nav nav-pills nav-stacked" id="app-dt-list"></ul>
+        </div>
+
+        <div class="col-sm-9">
+            <h4><small id="title">R4 - TEST 1</small></h4>
+            <hr />
+
+            <div style="font-size: 20px; color: black;">
+                <p style="text-align: center;"><strong id="app-title"></strong></p>
+            </div>
+            <div id="app-paragraph" style="font-size: 20px;"></div>
+            <form id="app-form-content">
+                <div id="app-content"></div>
+                <footer class="container-fluid">
+                    <button class="btn btn-primary">View Result</button>
+                    <button class="btn btn-success" id="btn-retry">Try again?</button>
+                </footer>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+
+<script src="~/Scripts/app/RFillingWords.js"></script>

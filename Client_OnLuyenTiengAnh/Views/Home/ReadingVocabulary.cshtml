@@ -1,0 +1,64 @@
+﻿@using Client_OnLuyenTiengAnh.Areas.Admin.Models
+@{
+    ViewBag.Title = "ReadingVocabulary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<DeThi> list = (List<DeThi>)ViewBag.dsDeThi;
+}
+
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+
+<style>
+
+    ul li {
+        list-style: none;
+        color: black;
+    }
+
+        ul li label {
+            font-size: 16px;
+            color: black;
+        }
+
+    .question-title {
+        background-color: lightblue;
+        border-radius: 5px;
+        height: 40px;
+        text-align: center
+    }
+
+    .ion {
+        margin-left: 12px;
+    }
+</style>
+
+<!-- .container -->
+<div class="container-fluid" id="app">
+
+    <div class="col-sm-3 sidenav">
+        <h4>List</h4>
+        <ul class="nav nav-pills nav-stacked" id="#menu">
+            @foreach (var item in list)
+            {
+                <li><a>@item.MaDe</a></li>
+            }
+
+
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <h4><small>R1 - Test 1</small></h4><hr>
+
+    </div>
+    <br />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#menu li a").click(function () {
+                //$(this).parent().addClass('active').siblings().removeClass('active');
+                alert(this);
+
+            });
+        })
+    </script>
+
+</div>
+
