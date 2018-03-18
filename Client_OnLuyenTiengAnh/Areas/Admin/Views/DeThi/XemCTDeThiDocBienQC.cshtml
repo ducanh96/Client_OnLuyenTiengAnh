@@ -1,0 +1,71 @@
+﻿@using Client_OnLuyenTiengAnh.Areas.Admin.Response;
+@using Client_OnLuyenTiengAnh.Areas.Admin.Models
+@model GetListCauHoi_DeThiResponse
+@{
+    ViewBag.Title = "XemCTDeThiDocBienQC";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 class="center">Chi tiết đề thi phần ngữ pháp từ vựng</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <div class="center">
+            <label>Mã đề: </label><input type="text" value="@Model.deThi.MaDe" disabled="disabled" />
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="simple-table" class="table  table-bordered table-hover">
+                    <thead>
+
+                        <tr>
+
+                            @*<th class="detail-col">Details</th>*@
+                            <th>Đoạn quảng cáo</th>
+                            <th>Đán án A</th>
+                            <th>Đáp án B</th>
+                            <th>Đáp án C</th>
+
+                            <th>Đáp án</th>
+
+
+
+                        </tr>
+
+
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.cauHois)
+                        {
+                            <tr>
+
+                                <td><img height="150" class="thumbnail inline no-margin-bottom" alt="Ảnh không hợp lệ" src="~/Areas/admin/assets/image/@item.TieuDe"></td>
+                                <td>@item.PhuongAnA</td>
+                                <td>@item.PhuongAnB</td>
+                                <td>@item.PhuongAnC</td>
+                                <td>@item.DapAn</td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div><!-- /.span -->
+        </div><!-- /.row -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div style="display: none">
+                    <table id="dynamic-table" class="table table-striped table-bordered table-hover"></table>
+                </div>
+            </div>
+        </div>
+        <div class="hr hr-18 dotted hr-double"></div>
+
+
+    </div><!-- /.span -->
+</div><!-- /.row -->

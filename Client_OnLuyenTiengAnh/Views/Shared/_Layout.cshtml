@@ -64,6 +64,7 @@
             }
     </style>
     <script src="~/Scripts/vue.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body class="body-header-transparent">
     <div class="parallax-mirror" style="visibility: hidden; z-index: -100; position: fixed; top: -2992px; left: 0px; overflow: hidden; transform: translate3d(0px, 0px, 0px); height: 432px; width: 1013px;"><img class="parallax-slider" src="~/public/images/content/bg/7.jpg" style="transform: translate3d(0px, 0px, 0px); position: absolute; top: 2325.6px; left: 0px; height: 569px; width: 1013px; max-width: none;"></div>
@@ -200,7 +201,7 @@
                             <div class="navbar-logo">
                                 <!-- site logo -->
                                 <div class="navbar-logo-wrap">
-                                    <a href="/Home/Index">
+                                    <a href="@Url.Action("Index","Thi")">
                                         <img src="~/public/images/logo-white-big.png" alt="Logo" class="logo-primary">
                                         <img src="~/public/images/logo.png" alt="Logo" class="logo-secondary">
                                     </a>

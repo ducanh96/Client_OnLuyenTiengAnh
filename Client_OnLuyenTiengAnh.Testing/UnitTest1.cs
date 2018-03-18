@@ -6,6 +6,7 @@ using Client_OnLuyenTiengAnh.Areas.Admin.AppService;
 
 using Client_OnLuyenTiengAnh.Areas.Admin.Models;
 using Client_OnLuyenTiengAnh.Areas.Admin.Request;
+using Client_OnLuyenTiengAnh.Areas.Admin.Response;
 using Client_OnLuyenTiengAnh.Areas.Admin.Service;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -91,12 +92,34 @@ namespace Client_OnLuyenTiengAnh.Testing
         {
 
            CauHoiAppService cauHoiAppService = new CauHoiAppService();
-           var tam = await cauHoiAppService.GetListNghe_CauHoi(6);
+           var tam = await cauHoiAppService.GetListNghe_CauHoi(9);
             foreach (var item in tam)
             {
                 TestContext.WriteLine(item.nghe.FileNghe+item.CauHois[0].ToString());
             }
 
         }
+        [TestMethod]
+
+        public void TestGetListCauHoi_DeThi()
+        {
+            CauHoiAppService _cauHoiAppService = new CauHoiAppService();
+            GetListCauHoi_DeThiResponse deThi = new GetListCauHoi_DeThiResponse();
+            Task.Run(async () => { deThi = await _cauHoiAppService.GetListCauHoi_DeThi((int)DSCHUDE.TuVungNguPhap) as GetListCauHoi_DeThiResponse; }).Wait();
+            TestContext.WriteLine(deThi.deThi.MaDe);
+        }
+
+        [TestMethod]
+
+        public async Task TestGetDeThiById()
+        {
+
+            DeThiAppService cauHoiAppService = new DeThiAppService();
+            var tam = await cauHoiAppService.GetDeThiById(1016);
+            TestContext.WriteLine(tam.MaDe);
+           
+
+        }
+
     }
 }

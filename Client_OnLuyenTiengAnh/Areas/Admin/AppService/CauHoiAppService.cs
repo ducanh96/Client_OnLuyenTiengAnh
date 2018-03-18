@@ -33,5 +33,15 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.AppService
         {
             return await _cauHoiService.GetListNghe_CauHoi(maTopic) as List<GetListNghe_CauHoiResponse>;
         }
+        public async Task<GetListCauHoi_DeThiResponse> GetListCauHoi_DeThi(int idDeThi)
+        {
+            return await _cauHoiService.GetListCauHoi_DeThi(idDeThi);
+        }
+
+        public async Task<IEnumerable<GetListDoc_CauHoiResponse>> GetListDoc_CauHoi(int maTopic)
+        {
+            return await _cauHoiService.GetListDoc_CauHoi(maTopic) as List<GetListDoc_CauHoiResponse>;
+        }
+
     }
 }

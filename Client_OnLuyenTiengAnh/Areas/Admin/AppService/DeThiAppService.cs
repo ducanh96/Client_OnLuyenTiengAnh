@@ -1,5 +1,6 @@
 ﻿using Client_OnLuyenTiengAnh.Areas.Admin.Models;
 using Client_OnLuyenTiengAnh.Areas.Admin.Request;
+using Client_OnLuyenTiengAnh.Areas.Admin.Response;
 using Client_OnLuyenTiengAnh.Areas.Admin.Service;
 using System;
 using System.Collections.Generic;
@@ -48,5 +49,11 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.AppService
             };
             return await _deThiService.UpdateCauHoi_DeThi(updateCauHoi_DeThiRequest);
         }
+
+        public async Task<DeThi> GetDeThiById(int idDeThi)
+        {
+            return await _deThiService.GetDeThiById(idDeThi);
+        }
+
     }
 }

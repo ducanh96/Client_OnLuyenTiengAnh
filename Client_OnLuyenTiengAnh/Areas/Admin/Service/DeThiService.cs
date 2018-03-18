@@ -116,5 +116,30 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Service
             }
         }
 
+        public async Task<DeThi> GetDeThiById(int idDeThi)
+        {
+
+            using (var client = new HttpClient())
+            {
+                DeThi deThi = new DeThi();
+                client.BaseAddress = new Uri(Constants.URI);
+
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                var response = await client.GetAsync(string.Format(Constants.GetDeThiById, idDeThi));
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var deThiResponse = await response.Content.ReadAsAsync<GetDeThiByIdResponse>();
+
+                    deThi = deThiResponse.deThi;
+
+                }
+
+                return deThi;
+
+            }
+        }
+
     }
 }

@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "DocBienQuangCao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using Client_OnLuyenTiengAnh.Areas.Admin.Models
+@{
+    ViewBag.Title = "TuVungNguPhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<DeThi> list = (List<DeThi>)ViewBag.dsDeThi;
+}
+<style>
+
+    ul li {
+        list-style: none;
+        color: black;
+    }
+
+        ul li label {
+            font-size: 16px;
+            color: black;
+        }
+
+    .question-title {
+        background-color: lightblue;
+        border-radius: 5px;
+        height: 40px;
+        text-align: center
+    }
+
+    .ion {
+        margin-left: 12px;
+    }
+</style>
+
+
+<div class="container-fluid" id="app">
+
+    <div class="row">
+        <div class="col-sm-3 sidenav">
+            <h4>Danh sách đề</h4>
+            <ul class="nav nav-pills nav-stacked">
+
+                @foreach (var item in list)
+                {
+                    <li class="nav-item" v-on:click="{selected = @item.Id; getDeThi(@item.Id);tenDe = '@item.MaDe';disableBtnResult = false; disableBtnAgain = false; }" v-bind:class="{active:selected == @item.Id}">
+                        <a class="nav-link">@item.MaDe</a>
+                    </li>
+                }
+
+            </ul>
+
+        </div>
+        <div class="col-md-9">
+            <h4>{{tenDe}}</h4>
+            <div v-for="(item,index) in dl">
+                <div class="question-title">
+                    <h4>Question {{index+1}}</h4>
+                </div>
+                <div style="margin-top: 15px;">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{item.tieuDe}}">
+                        </div>
+                        <div class="col-md-9">
+                            <ul>
+                                <li><label><input type="radio" v-bind:name="index" v-bind:value="item.phuongAnA"> A. {{item.phuongAnA}}</label></li>
+                                <li><label><input type="radio" v-bind:name="index" v-bind:value="item.phuongAnB"> B. {{item.phuongAnB}}</label></li>
+                                <li><label><input type="radio" v-bind:name="index" v-bind:value="item.phuongAnC"> C. {{item.phuongAnC}}</label></li>
+                                <li v-if="item.phuongAnD !== null"><label><input type="radio" v-bind:name="index" v-bind:value="item.phuongAnD"> D. {{item.phuongAnD}}</label></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <hr />
+            <footer class="container-fluid">
+                <button v-bind:disabled="disableBtnResult" class="btn btn-primary" style="margin-right: 5px;" v-on:click="getResult">View Result</button>
+                <button v-bind:disabled="disableBtnAgain" class="btn btn-success" v-on:click="tryAgain">Try again?</button>
+            </footer>
+
+        </div>
+    </div>
+</div>
+<br />
+<script>
+
+    var myApp = new Vue({
+        el: '#app',
+        data: {
+            dl: [],
+            selected: undefined,
+            result: 0,
+            maDeHienTai: undefined,
+            tenDe: undefined,
+            disableBtnResult: true,
+            disableBtnAgain: true
+
+        },
+        methods: {
+            fetchData(maDe) {
+                this.maDeHienTai = maDe;
+                this.dl = [];
+                fetch(`http://localhost:50405/api/v1/CauHoi/${maDe}`, {
+                    method: 'GET'
+                }).then(x => x.json()).then(x => { this.dl = x.cauHois });
+
+            },
+            getDeThi(maDe) {
+
+                this.fetchData(maDe);
+
+
+            },
+            getTenDe(tenDe) {
+                this.tenDe = tenDe;
+            },
+            tryAgain() {
+                this.fetchData(this.maDeHienTai);
+                this.disableBtnResult = false;
+                this.disableBtnAgain = false;
+            },
+
+            getResult() {
+                let tempThis = this;
+                this.result = 0;
+                for (var i = 0; i < tempThis.dl.length; i++) {
+
+                    var getCheck = $("input[name=" + i + "]:checked");
+                    var tam = getCheck.val();
+
+
+                    if (tam == tempThis.dl[i].dapAn) {
+                        tempThis.result++;
+                        getCheck.parent("label").css("color", "green").append('<i class="ion ion-checkmark-round"></i>');
+                    }
+                    else {
+                        getCheck.parent("label").css("color", "red").append('<i class="ion ion-close-round"></i>');
+                    }
+                }
+                swal("Good job!", "Bạn đã đúng được " + this.result + " câu", "success");
+                this.disableBtnResult = true;
+
+            }
+
+        },
+        created() {
+
+        }
+    })
+</script>

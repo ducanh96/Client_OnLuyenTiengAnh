@@ -696,6 +696,14 @@
     <Content Include="public\fonts\slick.eot" />
     <Content Include="public\fonts\slick.ttf" />
     <Content Include="public\fonts\slick.woff" />
+    <Content Include="Areas\Admin\Views\DeThi\XemCTDeThiNPTV.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\XemCTDeThiDocBienQC.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\XemCTDeThiNgheHoiTHoai.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\XemCTDeThiNgheDienTu.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\XemCTDeThiNgheYesNo.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\ThemDeThiHoiThoai.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\ThemDeThiNgheDienTu.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\ThemDeThiNgheYesNo.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -728,19 +736,24 @@
     <Compile Include="Areas\Admin\Models\CauHoi.cs" />
     <Compile Include="Areas\Admin\Models\ChuDe.cs" />
     <Compile Include="Areas\Admin\Models\DeThi.cs" />
+    <Compile Include="Areas\Admin\Models\Doc.cs" />
     <Compile Include="Areas\Admin\Models\Nghe.cs" />
     <Compile Include="Areas\Admin\Request\DeThiAddRequest.cs" />
     <Compile Include="Areas\Admin\Request\UpdateCauHoi_DeThiRequest.cs" />
     <Compile Include="Areas\Admin\Response\BaseResponse.cs" />
     <Compile Include="Areas\Admin\Response\ChuDeGetListResponse.cs" />
     <Compile Include="Areas\Admin\Response\DeThiAddResponse.cs" />
+    <Compile Include="Areas\Admin\Response\GetDeThiByIdResponse.cs" />
+    <Compile Include="Areas\Admin\Response\GetListCauHoi_DeThiResponse.cs" />
     <Compile Include="Areas\Admin\Response\GetListCauHoi_KhongThuocDeThiResponse.cs" />
     <Compile Include="Areas\Admin\Response\GetListDeThi_ChuDeResponse.cs" />
+    <Compile Include="Areas\Admin\Response\GetListDoc_CauHoiResponse.cs" />
     <Compile Include="Areas\Admin\Response\GetListNghe_CauHoiResponse.cs" />
     <Compile Include="Areas\Admin\Service\CauHoiService.cs" />
     <Compile Include="Areas\Admin\Service\ChuDeService.cs" />
     <Compile Include="Areas\Admin\Service\DeThiService.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ThiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -779,6 +792,16 @@
     <Content Include="Views\Home\WritingLetter.cshtml" />
     <Content Include="Views\Home\WritingRewriteSentences.cshtml" />
     <Content Include="Views\Home\WritingStory.cshtml" />
+    <Content Include="Views\Thi\Index.cshtml" />
+    <Content Include="Views\Thi\TuVungNguPhap.cshtml" />
+    <Content Include="Views\Thi\DocBienQuangCao.cshtml" />
+    <Content Include="Views\Thi\DocHieuDoanVan.cshtml" />
+    <Content Include="Views\Thi\DocDienTu.cshtml" />
+    <Content Include="Views\Thi\NgheTranhVe.cshtml" />
+    <Content Include="Views\Thi\NgheDoanHoiThoai.cshtml" />
+    <Content Include="Views\Thi\NgheDienTu.cshtml" />
+    <Content Include="Views\Thi\NgheYesNo.cshtml" />
+    <Content Include="Views\Thi\VietLaiCau.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

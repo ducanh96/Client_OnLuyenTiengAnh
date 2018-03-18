@@ -62,6 +62,34 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Service
             }
         }
 
+
+        public async Task<IEnumerable<GetListDoc_CauHoiResponse>> GetListDoc_CauHoi(int maChuDe)
+        {
+
+            using (var client = new HttpClient())
+            {
+                IEnumerable<GetListDoc_CauHoiResponse> result = null;
+                client.BaseAddress = new Uri(Constants.URI);
+
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                var response = await client.GetAsync(string.Format(Constants.GetListDoc_CauHoi, maChuDe));
+
+                if (response.IsSuccessStatusCode)
+                {
+                    result = await response.Content.ReadAsAsync<IEnumerable<GetListDoc_CauHoiResponse>>();
+
+
+
+                }
+
+                return result;
+
+            }
+        }
+
+
+
         public List<CauHoi> LayDSCHDuocChon(int[] IDCauHoiDuocChon, List<CauHoi> lstCHKhongThuocDT)
         {
             var dsCHDuocChon = new List<CauHoi>();
@@ -78,6 +106,31 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Service
                 }
             }
             return dsCHDuocChon;
+        }
+
+        public async Task<GetListCauHoi_DeThiResponse> GetListCauHoi_DeThi(int idDeThi)
+        {
+
+            using (var client = new HttpClient())
+            {
+                GetListCauHoi_DeThiResponse result = new GetListCauHoi_DeThiResponse();
+                client.BaseAddress = new Uri(Constants.URI);
+
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                var response = await client.GetAsync(string.Format(Constants.GetListCauHoi_DeThi, idDeThi));
+
+                if (response.IsSuccessStatusCode)
+                {
+                    result = await response.Content.ReadAsAsync<GetListCauHoi_DeThiResponse>();
+
+                    
+
+                }
+
+                return result;
+
+            }
         }
     }
 }

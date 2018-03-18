@@ -30,31 +30,19 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
         public ActionResult Index()
         {
 
-            //ViewBag.dsTuVung = _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.TuVungNguPhap);
-            //ViewBag.dsBienQC = _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.DocBienQuangCao);
-            //ViewBag.dsDienTu = _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.DocDienTu);
-
-           // Task.Run(async () => await Task.WhenAll(
-           //    _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.TuVungNguPhap)
-        
-           //)     );
-          
-            //ViewBag.dsTuVung = (List<DeThi>)ViewBag.dsTuVung;
-            //ViewBag.dsBienQC = (List<DeThi>)ViewBag.dsBienQC;
-            //ViewBag.dsDoanVan = (List<DeThi>)ViewBag.dsDoanVan;
             return View();
         }
 
         #region DOC
 
 
-               #region Hiển thị
+        #region Hiển thị
 
-        
+
         [ChildActionOnly]
         public ActionResult _TuVungNguPhap()
         {
-            
+
             ViewBag.dsTuVung = DeThiTVNP;
             return PartialView();
         }
@@ -72,7 +60,7 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
         {
             Task.Run(async () => { ViewBag.dsDoanVan = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.DocHieuDoanVan) as List<DeThi>; }).Wait();
             return PartialView();
-           
+
         }
 
         [ChildActionOnly]
@@ -83,24 +71,24 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
         }
         #endregion
 
-       #region Thêm đề thi từ vựng ngữ pháp
+        #region Thêm đề thi từ vựng ngữ pháp
         public ActionResult ThemDeThiTuVungNguPhap()
         {
 
-           
+
             List<CauHoi> dsChNguPhap = new List<CauHoi>();
             Task.Run(async () => { dsChNguPhap = await _cauHoiAppService.GetListCauHoi_KhongThuocDeThi((int)DSCHUDE.TuVungNguPhap) as List<CauHoi>; }).Wait();
-           
+
             //lay ra số đề thi thuộc chủ đề đang làm
-           
+
             var count = DeThiTVNP.Count;
-          
+
             string maDe = string.Format("Đề {0}", count + 1);
             ViewBag.maDe = maDe;
 
             return View(dsChNguPhap);
 
-            
+
         }
 
         [HttpPost]
@@ -120,7 +108,7 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
 
             //int count = new DeThi().XemDSDeThi(1).Count;
             string maDe = string.Format("Đề {0}", count + 1);
-            
+
             DeThi deThi = new DeThi
             {
                 MaDe = maDe,
@@ -137,13 +125,14 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
 
             foreach (var item in maCH)
             {
-                Task.Run(async () => { await _deThiAppService.UpdateCauHoi_DeThi(item,IdDeThi); }).Wait();
+                Task.Run(async () => { await _deThiAppService.UpdateCauHoi_DeThi(item, IdDeThi); }).Wait();
             }
 
             return RedirectToAction("Index");
         }
 
         #endregion
+
         #region Thêm đề thi đọc biển quảng cáo
 
         public ActionResult ThemDeThiDocBienQC()
@@ -214,7 +203,35 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
 
         #endregion
 
+        #region Xem Chi Tiết Đề Thi Đọc
 
+        #region Từ Vựng Ngữ Pháp
+
+        public ActionResult XemCTDeThiNPTV(int maDeThi)
+        {
+
+            GetListCauHoi_DeThiResponse deThi = new GetListCauHoi_DeThiResponse();
+            Task.Run(async () => { deThi = await _cauHoiAppService.GetListCauHoi_DeThi(maDeThi) as GetListCauHoi_DeThiResponse; }).Wait();
+            return View(deThi);
+        }
+
+        #endregion
+
+        #region Đọc biển quảng cáo
+        public ActionResult XemCTDeThiDocBienQC(int maDeThi)
+        {
+            GetListCauHoi_DeThiResponse deThi = new GetListCauHoi_DeThiResponse();
+            Task.Run(async () => { deThi = await _cauHoiAppService.GetListCauHoi_DeThi(maDeThi) as GetListCauHoi_DeThiResponse; }).Wait();
+            return View(deThi);
+        }
+
+
+
+        #endregion
+
+
+
+        #endregion
 
 
 
@@ -271,9 +288,9 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
             List<DeThi> dsDeThi = new List<DeThi>();
             var listNgheTranh = new List<GetListNghe_CauHoiResponse>();
             Task.Run(async () => { listNgheTranh = await _cauHoiAppService.GetListNghe_CauHoi((int)DSCHUDE.NgheTranhVe) as List<GetListNghe_CauHoiResponse>; }).Wait();
-            
-            
-          
+
+
+
             var dsNghe = listNgheTranh.Where(x => x.CauHois[0].IDDeThi == 0).ToList();
             //lay ra số đề thi thuộc chủ đề đang làm
             Task.Run(async () => { dsDeThi = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.NgheTranhVe) as List<DeThi>; }).Wait();
@@ -317,10 +334,171 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
             return RedirectToAction("Nghe");
         }
 
+        #region Thêm đề thi nghe đoạn hội thoại
+
+        public ActionResult ThemDeThiHoiThoai()
+        {
+            List<DeThi> dsDeThi = new List<DeThi>();
+            var listNgheHoiThoai = new List<GetListNghe_CauHoiResponse>();
+            Task.Run(async () => { listNgheHoiThoai = await _cauHoiAppService.GetListNghe_CauHoi((int)DSCHUDE.NgheDoanHoiThoai) as List<GetListNghe_CauHoiResponse>; }).Wait();
+            var dsNghe = listNgheHoiThoai.Where(x => x.CauHois[0].IDDeThi == 0).ToList();
+            //lay ra số đề thi thuộc chủ đề đang làm
+            Task.Run(async () => { dsDeThi = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.NgheDoanHoiThoai) as List<DeThi>; }).Wait();
+            int count = dsDeThi.Count;
+            string maDe = string.Format("Đề {0}", count + 1);
+            ViewBag.maDe = maDe;
+            return View(dsNghe);
+        }
+
+        [HttpPost]
+        public ActionResult ThemDeThiHoiThoai(int maNghe)
+        {
+            bool status = false;
+            List<DeThi> dsDeThi = new List<DeThi>();
+            Task.Run(async () => { dsDeThi = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.NgheDoanHoiThoai) as List<DeThi>; }).Wait();
+            int count = dsDeThi.Count;
+            string maDe = string.Format("Đề {0}", count + 1);
+
+            DeThi deThi = new DeThi
+            {
+                MaDe = maDe,
+                IDChuDe = (int)DSCHUDE.NgheDoanHoiThoai
+            };
+
+            Task.Run(async () => { status = await _deThiAppService.Add(deThi); }).Wait();
+
+            int IdDeThi = 0;
+            Task.Run(async () => { IdDeThi = await _deThiAppService.GetLastId("DeThi"); }).Wait();
+
+            // lay ra ds nghe 
+            var listNgheHoiThoai = new List<GetListNghe_CauHoiResponse>();
+            Task.Run(async () => { listNgheHoiThoai = await _cauHoiAppService.GetListNghe_CauHoi((int)DSCHUDE.NgheDoanHoiThoai) as List<GetListNghe_CauHoiResponse>; }).Wait();
+            var dsCH = listNgheHoiThoai.Find(x => x.nghe.ID == maNghe).CauHois;
+
+            foreach (var item in dsCH)
+            {
+                Task.Run(async () => { await _deThiAppService.UpdateCauHoi_DeThi(item.ID, IdDeThi); }).Wait();
+            }
+
+            return RedirectToAction("Nghe");
+        }
+
 
         #endregion
 
-        #region Nghe-Xem Chi tiet De Thi
+        #region Thêm đề thi nghe điền từ
+
+        public ActionResult ThemDeThiNgheDienTu()
+        {
+
+            List<DeThi> dsDeThi = new List<DeThi>();
+            var listNgheDienTu = new List<GetListNghe_CauHoiResponse>();
+            Task.Run(async () => { listNgheDienTu = await _cauHoiAppService.GetListNghe_CauHoi((int)DSCHUDE.NgheDienTu) as List<GetListNghe_CauHoiResponse>; }).Wait();
+            var dsNghe = listNgheDienTu.Where(x => x.CauHois[0].IDDeThi == 0).ToList();
+            //lay ra số đề thi thuộc chủ đề đang làm
+            Task.Run(async () => { dsDeThi = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.NgheDienTu) as List<DeThi>; }).Wait();
+            int count = dsDeThi.Count;
+            string maDe = string.Format("Đề {0}", count + 1);
+            ViewBag.maDe = maDe;
+            return View(dsNghe);
+
+        }
+
+        [HttpPost]
+        public ActionResult ThemDeThiNgheDienTu(int maNghe)
+        {
+            bool status = false;
+            List<DeThi> dsDeThi = new List<DeThi>();
+            Task.Run(async () => { dsDeThi = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.NgheDienTu) as List<DeThi>; }).Wait();
+            int count = dsDeThi.Count;
+            string maDe = string.Format("Đề {0}", count + 1);
+
+            DeThi deThi = new DeThi
+            {
+                MaDe = maDe,
+                IDChuDe = (int)DSCHUDE.NgheDienTu
+            };
+
+            Task.Run(async () => { status = await _deThiAppService.Add(deThi); }).Wait();
+
+            int IdDeThi = 0;
+            Task.Run(async () => { IdDeThi = await _deThiAppService.GetLastId("DeThi"); }).Wait();
+
+            // lay ra ds nghe 
+            var listNgheDienTu = new List<GetListNghe_CauHoiResponse>();
+            Task.Run(async () => { listNgheDienTu = await _cauHoiAppService.GetListNghe_CauHoi((int)DSCHUDE.NgheDienTu) as List<GetListNghe_CauHoiResponse>; }).Wait();
+            var dsCH = listNgheDienTu.Find(x => x.nghe.ID == maNghe).CauHois;
+
+            foreach (var item in dsCH)
+            {
+                Task.Run(async () => { await _deThiAppService.UpdateCauHoi_DeThi(item.ID, IdDeThi); }).Wait();
+            }
+
+            return RedirectToAction("Nghe");
+        }
+
+
+        #endregion
+
+        #region Thêm đề thi nghe Yes/No
+
+        public ActionResult ThemDeThiNgheYesNo()
+        {
+
+            List<DeThi> dsDeThi = new List<DeThi>();
+            var listNgheYesNo = new List<GetListNghe_CauHoiResponse>();
+            Task.Run(async () => { listNgheYesNo = await _cauHoiAppService.GetListNghe_CauHoi((int)DSCHUDE.NgheYesNo) as List<GetListNghe_CauHoiResponse>; }).Wait();
+            var dsNghe = listNgheYesNo.Where(x => x.CauHois[0].IDDeThi == 0).ToList();
+            //lay ra số đề thi thuộc chủ đề đang làm
+            Task.Run(async () => { dsDeThi = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.NgheYesNo) as List<DeThi>; }).Wait();
+            int count = dsDeThi.Count;
+            string maDe = string.Format("Đề {0}", count + 1);
+            ViewBag.maDe = maDe;
+            return View(dsNghe);
+        }
+
+
+        [HttpPost]
+        public ActionResult ThemDeThiNgheYesNo(int maNghe)
+        {
+            bool status = false;
+            List<DeThi> dsDeThi = new List<DeThi>();
+            Task.Run(async () => { dsDeThi = await _deThiAppService.GetListDeThi_ChuDe((int)DSCHUDE.NgheYesNo) as List<DeThi>; }).Wait();
+            int count = dsDeThi.Count;
+            string maDe = string.Format("Đề {0}", count + 1);
+
+            DeThi deThi = new DeThi
+            {
+                MaDe = maDe,
+                IDChuDe = (int)DSCHUDE.NgheYesNo
+            };
+
+            Task.Run(async () => { status = await _deThiAppService.Add(deThi); }).Wait();
+
+            int IdDeThi = 0;
+            Task.Run(async () => { IdDeThi = await _deThiAppService.GetLastId("DeThi"); }).Wait();
+
+            // lay ra ds nghe 
+            var listNgheYesNo = new List<GetListNghe_CauHoiResponse>();
+            Task.Run(async () => { listNgheYesNo = await _cauHoiAppService.GetListNghe_CauHoi((int)DSCHUDE.NgheYesNo) as List<GetListNghe_CauHoiResponse>; }).Wait();
+            var dsCH = listNgheYesNo.Find(x => x.nghe.ID == maNghe).CauHois;
+
+            foreach (var item in dsCH)
+            {
+                Task.Run(async () => { await _deThiAppService.UpdateCauHoi_DeThi(item.ID, IdDeThi); }).Wait();
+            }
+
+            return RedirectToAction("Nghe");
+        }
+
+        #endregion
+
+
+
+
+        #endregion
+
+        #region Nghe Xem Chi tiet De Thi
 
         public ActionResult XemCTDeThiNgheTranh(int maDeThi)
         {
@@ -331,6 +509,40 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Controllers
             return View(deThi);
         }
 
+        #endregion
+
+        #region Xem chi tiết nghe đoạn hội thoại
+
+        public ActionResult XemCTDeThiNgheHoiTHoai(int maDeThi)
+        {
+            var listNgheHoiThoai = new List<GetListNghe_CauHoiResponse>();
+            Task.Run(async () => { listNgheHoiThoai = await _cauHoiAppService.GetListNghe_CauHoi((int)DSCHUDE.NgheDoanHoiThoai) as List<GetListNghe_CauHoiResponse>; }).Wait();
+            var deThi = listNgheHoiThoai.Where(x => x.CauHois.FirstOrDefault().IDDeThi == maDeThi).FirstOrDefault();
+            return View(deThi);
+        }
+
+        #endregion
+
+        #region Xem chi tiết nghe điền từ
+
+        public ActionResult XemCTDeThiNgheDienTu(int maDeThi)
+        {
+            var listNgheDienTu = new List<GetListNghe_CauHoiResponse>();
+            Task.Run(async () => { listNgheDienTu = await _cauHoiAppService.GetListNghe_CauHoi((int)DSCHUDE.NgheDienTu) as List<GetListNghe_CauHoiResponse>; }).Wait();
+            var deThi = listNgheDienTu.Where(x => x.CauHois.FirstOrDefault().IDDeThi == maDeThi).FirstOrDefault();
+            return View(deThi);
+        }
+        #endregion
+
+        #region Xem chi tiết nghe Yes/No
+
+        public ActionResult XemCTDeThiNgheYesNo(int maDeThi)
+        {
+            var listNgheYesNo = new List<GetListNghe_CauHoiResponse>();
+            Task.Run(async () => { listNgheYesNo = await _cauHoiAppService.GetListNghe_CauHoi((int)DSCHUDE.NgheYesNo) as List<GetListNghe_CauHoiResponse>; }).Wait();
+            var deThi = listNgheYesNo.Where(x => x.CauHois.FirstOrDefault().IDDeThi == maDeThi).FirstOrDefault();
+            return View(deThi);
+        }
         #endregion
 
         #endregion
