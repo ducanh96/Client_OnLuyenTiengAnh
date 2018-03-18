@@ -16,7 +16,7 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin
 
         #region Đề thi 
         public static string GetListDeThi_ChuDe = "api/v1/DeThi/{0}";
-        public static string GetListCauHoi_KhongThuocDeThi = "api/v1/CauHoi/{0}";
+        public static string GetListCauHoi_KhongThuocDeThi = "api/v1/CauHoi/KhongThuocDeThi/{0}";
         public static string AddDeThi = "api/v1/DeThi";
         public static string GetLastId = "api/v1/DeThi/GetLastId?table={0}";
         public static string UpdateCauHoi_DeThi = "api/v1/DeThi/UpdateCauHoi";
