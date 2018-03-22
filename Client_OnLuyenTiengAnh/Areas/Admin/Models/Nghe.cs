@@ -9,5 +9,6 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Models
     {
         public int ID { get; set; }
         public string FileNghe { get; set; }
+        public int IDChuDe { get; set; }
     }
 }

@@ -30,10 +30,26 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin
 
         #region Câu hỏi
         public static string GetListCauHoi_DeThi = "api/v1/CauHoi/{0}";
-
+        public static string GetListCauHoiByID = "api/v1/CauHoi/get/{0}";
+        public static string AddCauHoi = "api/v1/CauHoi";
+        public static string UpdateCauHoi = "api/v1/CauHoi/UpdateCauHoi";
+        public static string DeleteCauHoi = "api/v1/CauHoi/DeleteCauHoi";
+        public static string DeleteCauHoiByIDDoc = "api/v1/CauHoi/DeleteCauHoiByIDDoc";
+        public static string DeleteCauHoiByIDNghe = "api/v1/CauHoi/DeleteCauHoiByIDNghe";
 
         #endregion
+        #region Đọc
+        public static string AddDoanVan = "api/v1/Doc";
+        public static string UpdateDoanVan = "api/v1/Doc/UpdateDoc";
+        public static string DeleteDoanVan = "api/v1/Doc/DeleteDoc";
 
+        #endregion
+        #region Nghe
+        public static string AddFileNghe = "api/v1/Nghe";
+        public static string UpdateFileNghe = "api/v1/Doc/UpdateNghe";
+        public static string DeleteFileNghe = "api/v1/Doc/DeleteNghe";
+
+        #endregion
 
     }
 }

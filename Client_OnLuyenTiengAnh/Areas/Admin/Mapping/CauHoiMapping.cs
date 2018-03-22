@@ -13,5 +13,17 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Mapping
         {
             return response.CauHois;
         }
+        public static IEnumerable<CauHoi> ToModel2(this GetListCauHoiByIDResponse response)
+        {
+            return response.CauHois;
+        }
+        //public static IEnumerable<DocEntity> ToModelDoc(this GetListDoc_CauHoiResponse response)
+        //{
+        //    DocEntity d = new DocEntity();
+        //    d.doc= response.doc;
+        //    d.CauHois = response.CauHois;
+        //    return d;
+        //}
+
     }
 }

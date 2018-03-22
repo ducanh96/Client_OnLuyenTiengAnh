@@ -8,7 +8,7 @@ namespace Client_OnLuyenTiengAnh.Areas.Admin.Response
 {
     public class GetListDoc_CauHoiResponse
     {
-        public Doc nghe { get; set; }
+        public Doc doc { get; set; }
         public List<CauHoi> CauHois { get; set; }
     }
 }
